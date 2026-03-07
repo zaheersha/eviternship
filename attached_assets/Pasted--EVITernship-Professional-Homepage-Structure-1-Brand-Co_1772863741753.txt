@@ -1,0 +1,399 @@
+🎓 EVITernship – Professional Homepage Structure
+🎨 1. Brand Colors (Based on Your Logo)
+
+Your logo uses Orange + Dark Blue.
+
+Primary Color
+
+Orange: #FF8C42
+
+Secondary Color
+
+Dark Blue: #0F1B3D
+
+Background
+
+White: #FFFFFF
+
+Text
+
+Dark Gray: #1E1E1E
+
+Accent
+
+Light Orange Gradient: #FFA65C → #FF7A18
+
+Design Style
+
+Clean EdTech
+
+Rounded cards
+
+Soft shadows
+
+Minimal icons
+
+1️⃣ HERO SECTION (First Fold)
+
+This is the most important section.
+
+Layout
+
+Left side → Text
+Right side → Illustration / Students learning image
+
+Content
+
+Headline
+
+Build Industry Skills with Real Internships
+
+Subtext
+
+EVITernship helps students gain real-world experience through structured internships in Data Science, Full Stack Development, DevOps, and Data Analysis.
+
+CTA Buttons
+
+Primary Button (Orange)
+
+Explore Internships
+
+Secondary Button (Outline)
+
+View Success Stories
+Right Side Image Ideas
+
+Students working on laptops
+
+Internship illustration
+
+Training session photos
+
+2️⃣ TRUST BAR (Companies / Universities)
+
+Like PrepInsta.
+
+Title
+
+Trusted by Students from
+
+Content
+
+Scrolling logos:
+
+JNTU
+Osmania University
+Kurnool Engineering Colleges
+Hyderabad Institutes
+
+Or
+
+100+ Colleges
+5000+ Students
+3️⃣ ABOUT EVITernship
+
+Short introduction.
+
+Title
+
+What is EVITernship?
+
+Content
+
+EVITernship is an EdTech platform focused on providing practical internship training programs that bridge the gap between academic learning and industry requirements.
+
+4 Key Highlights
+
+Cards:
+
+🎓 Industry-Focused Training
+💼 Real Internship Experience
+📊 Hands-On Projects
+📜 Internship Certification
+
+4️⃣ OUR INTERNSHIP PROGRAMS
+
+Grid layout (very important section).
+
+Title
+
+Our Internship Programs
+
+Cards (4 or 6)
+
+Example:
+
+Full Stack Development
+
+React
+
+Node
+
+MongoDB
+
+Data Analysis
+
+Python
+
+Excel
+
+Power BI
+
+Tableau
+
+DevOps
+
+Docker
+
+CI/CD
+
+AWS
+
+Data Science
+
+Python
+
+Machine Learning
+
+Pandas
+
+Button on each card:
+
+View Program
+5️⃣ HOW THE PROGRAM WORKS
+
+Step section.
+
+Title
+
+How EVITernship Works
+
+4 Steps
+
+1️⃣ Enroll in Internship
+2️⃣ Learn Through Training Sessions
+3️⃣ Work on Real Projects
+4️⃣ Get Internship Certificate
+
+Icons for each step.
+
+6️⃣ STUDENT PROJECT SHOWCASE
+
+Like Smart Interviews.
+
+Title
+
+Projects Built by Our Students
+
+Cards with:
+
+Project Name
+Student Name
+Tools Used
+
+Example:
+
+Sales Data Analysis Dashboard
+Tools: Python, Tableau
+
+Ecommerce Full Stack Website
+Tools: React, Node
+
+7️⃣ PLACED / SUCCESS STORIES
+
+Carousel section.
+
+Title
+
+Our Success Stories
+
+Cards:
+
+Student Photo
+Name
+College
+Company
+
+Example
+
+Rahul Sharma
+Data Analyst Intern
+Placed at XYZ Company
+
+OR
+
+Testimonials
+
+8️⃣ TRAINING SESSION GALLERY
+
+Carousel of images.
+
+Title
+
+Inside Our Training Sessions
+
+Photos:
+
+Classroom training
+
+Online sessions
+
+Students presenting
+
+Hackathons
+
+9️⃣ CERTIFICATIONS
+Title
+
+Earn Recognized Certificates
+
+Show certificates like:
+
+Python Internship Certificate
+
+Data Analysis Certificate
+
+DevOps Internship Certificate
+
+Add sample images.
+
+🔟 STATS SECTION
+
+Dark background.
+
+Content
+5000+ Students Trained
+120+ Colleges
+50+ Industry Mentors
+20+ Internship Programs
+11️⃣ MENTORS / TRAINERS
+Title
+
+Learn from Industry Experts
+
+Cards:
+
+Trainer photo
+Name
+Experience
+
+Example
+
+Rahul Kumar
+Senior Data Scientist
+10+ Years Experience
+12️⃣ WHY CHOOSE EVITernship
+
+Grid icons.
+
+Points
+
+✔ Industry-Relevant Curriculum
+✔ Real Internship Experience
+✔ Mentorship from Experts
+✔ Hands-On Projects
+✔ Certification
+✔ Career Guidance
+
+13️⃣ CALL TO ACTION
+
+Orange background.
+
+Text
+
+Ready to Start Your Internship Journey?
+
+Buttons
+Apply Now
+Explore Programs
+14️⃣ FAQ SECTION
+
+Accordion style.
+
+Examples
+
+Do I need prior coding knowledge?
+Is the internship online or offline?
+Will I receive a certificate?
+Are projects included?
+
+15️⃣ FOOTER
+
+Include
+
+Sections:
+
+Company
+
+About
+
+Contact
+
+Programs
+
+Data Analysis
+
+Full Stack
+
+DevOps
+
+Resources
+
+Blog
+
+Success Stories
+
+Contact
+
+Email
+Phone
+Location
+
+Social icons:
+
+LinkedIn
+Instagram
+YouTube
+
+⭐ BONUS FEATURES (Highly Recommended)
+
+To make it look very professional
+
+Add:
+
+1️⃣ Placement Companies Logo Section
+
+Companies where students got jobs.
+
+2️⃣ Live Internship Batch Counter
+Next Batch Starting in 5 Days
+3️⃣ Free Webinar Section
+Free Python Workshop
+Register Now
+4️⃣ Blog Section
+
+Articles like
+
+How to Become Data Analyst
+
+Top Skills for Developers
+
+🧠 Professional Page Flow
+
+Final order:
+
+Hero
+Trusted By
+About
+Programs
+How It Works
+Student Projects
+Success Stories
+Training Gallery
+Certifications
+Stats
+Mentors
+Why Choose Us
+Call To Action
+FAQ
+Footer

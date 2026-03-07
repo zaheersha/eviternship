@@ -1,0 +1,244 @@
+🚀 EVITernship Homepage Functional Prompt (React + Animations)
+
+Build a professional EVITernship homepage using React + Framer Motion + Tailwind with smooth animations and working UI interactions.
+
+Ensure no runtime errors occur and all assets are properly imported.
+
+⚠️ Fix Runtime Error
+
+Current error:
+
+[plugin:runtime-error-plugin] project2Img is not defined
+
+Problem:
+
+An image variable is used but not imported.
+
+Fix:
+
+Ensure all project images are imported before usage.
+
+Example:
+
+import projectSocial from "../assets/projects/social-media.png";
+import project1Img from "../assets/projects/interview-simulator.png";
+import project2Img from "../assets/projects/photofolio.png";
+
+Then use:
+
+const projects = [
+  { title: "Social Media App", img: projectSocial, desc: "Dynamic platform with feeds, profiles, and chats." },
+  { title: "Interview Simulator", img: project1Img, desc: "AI-powered mock interview practice tool." },
+  { title: "PhotoFolio", img: project2Img, desc: "Modern gallery app for professional photographers." }
+];
+
+Important:
+
+If an image does not exist, fallback to a placeholder image.
+
+Example:
+
+/assets/projects/placeholder.jpg
+🎬 Animations (Must Work)
+
+Use Framer Motion.
+
+Add scroll animations to sections:
+
+fade-up
+slide-left
+slide-right
+scale-in
+
+Example:
+
+<motion.div
+initial={{ opacity: 0, y: 40 }}
+whileInView={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.6 }}
+viewport={{ once: true }}
+>
+🔢 Animated Counter (0 → Number)
+
+Numbers should count up when visible.
+
+Example values:
+
+Students Trained → 5000+
+Projects Built → 200+
+Partner Colleges → 100+
+Industry Mentors → 50+
+
+Use:
+
+react-countup
+
+Example:
+
+<CountUp start={0} end={5000} duration={3} />
+
+Trigger animation only when section enters viewport.
+
+🎠 Projects Carousel
+
+Create a horizontal carousel slider for projects.
+
+Minimum:
+
+5 projects.
+
+Example:
+
+Social Media App
+Interview Simulator
+Music Player
+Authentication System
+PhotoFolio
+
+Features:
+
+• Auto slide every 5 seconds
+• Left/right navigation arrows
+• Mobile swipe support
+• Smooth transition
+
+Use:
+
+swiper.js
+⬆️ Scroll To Top Button
+
+Add a floating scroll-to-top icon.
+
+Position:
+
+bottom-right corner
+
+Behavior:
+
+• Appears after user scrolls 300px
+• Smooth scroll to top
+• Hover animation
+
+Example:
+
+window.scrollTo({
+  top: 0,
+  behavior: "smooth"
+});
+
+Icon:
+
+ChevronUp
+💬 WhatsApp Help Widget
+
+Create a floating Help Chat Button.
+
+Position:
+
+bottom-left corner
+
+Design:
+
+Green WhatsApp button.
+
+Label:
+
+Need Help?
+Chat on WhatsApp
+
+When clicked:
+
+Open WhatsApp:
+
+https://wa.me/916304237115
+
+Add a cancel / close button.
+
+Interaction:
+
+Step 1
+
+Button shows:
+
+Need Help?
+Chat with us
+
+Step 2
+
+Click → popup appears
+
+Popup text:
+
+Hello 👋
+Need help with EVITernship programs?
+Chat with us on WhatsApp.
+
+Buttons:
+
+Chat Now
+Cancel
+
+Cancel closes the popup.
+
+🎨 Hover Animations
+
+Cards should have:
+
+hover:scale-105
+hover:shadow-xl
+transition duration-300
+⚡ Performance Requirements
+
+Ensure:
+
+• No undefined variables
+• No runtime errors
+• Lazy load images
+• Mobile responsive
+• Smooth animations
+• Proper imports
+
+📁 Recommended Folder Structure
+src
+ ├ components
+ │   ├ Hero.jsx
+ │   ├ StatsCounter.jsx
+ │   ├ ProjectsCarousel.jsx
+ │   ├ ScrollToTop.jsx
+ │   ├ WhatsAppHelp.jsx
+ │
+ ├ assets
+ │   ├ projects
+ │   │   ├ social-media.png
+ │   │   ├ interview-simulator.png
+ │   │   ├ photofolio.png
+ │
+ ├ pages
+ │   └ Home.jsx
+🧠 Extra UX Features
+
+Add:
+
+✔ smooth scrolling
+✔ section reveal animation
+✔ loading skeleton for images
+✔ responsive layout
+✔ animated CTA buttons
+
+⭐ Expected Result
+
+The homepage should feel like a modern EdTech startup site similar to:
+
+PrepInsta
+Smart Interviews
+Scaler
+Coding Ninjas
+
+With:
+
+• smooth animations
+• interactive elements
+• WhatsApp support
+• carousel projects
+• animated counters
+• no runtime errors.

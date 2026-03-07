@@ -1,0 +1,428 @@
+🚀 EVITernship Home Page Design Prompt
+
+Create a modern EdTech landing page for EVITernship with a professional UI similar to PrepInsta and Smart Interviews.
+
+Use clean cards, smooth animations, gradient backgrounds, and modern UI components.
+
+🎨 Color Theme
+
+Primary
+#FF8C42 (EVITernship Orange)
+
+Secondary
+#0F1B3D (Dark Blue)
+
+Background
+#FFFFFF
+
+Dark Section Background
+#0B0F1C
+
+Accent Gradient
+#FF8C42 → #FFB347
+
+Hover effect
+Slight glow + elevation.
+
+1️⃣ HERO SECTION
+
+Layout:
+
+Left
+Text + CTA
+
+Right
+Image / Illustration of developers working.
+
+Headline
+
+Launch Your Tech Career with EVITernship
+
+Subtext
+
+Learn real-world skills through internships, projects, and mentorship designed to make you industry ready.
+
+CTA Buttons
+
+Primary
+Explore Programs
+
+Secondary
+Enroll Now
+
+Animation
+
+• Text fade-up animation
+• Image slide-in from right
+• Buttons scale on hover
+
+2️⃣ TRUSTED BY / COMPANY LOGOS
+
+Inspired by Smart Interviews.
+
+Title
+
+Students preparing for companies like
+
+Grid of logos
+
+Google
+Microsoft
+Amazon
+Adobe
+IBM
+Meta
+Flipkart
+Goldman Sachs
+
+Animation
+
+• Logos fade in while scrolling
+• Continuous horizontal auto-scroll carousel
+
+3️⃣ INDUSTRY GROWTH SECTION (FROM YOUR PDF)
+
+Based on page 2 of the bootcamp PDF 
+
+01
+
+.
+
+Show two large cards
+
+Card 1
+
+$500 Billion Tech Industry by 2030
+
+India’s technology sector is projected to reach $500B.
+
+Card 2
+
+2x Startup Growth by 2030
+
+India’s startup ecosystem continues to expand rapidly.
+
+Below add
+
+68,000+ Tech Startups in India
+
+Animation
+
+Cards appear with scale animation.
+
+4️⃣ UPCOMING BOOTCAMP PROMOTION
+
+Use your Full Stack Job Bootcamp from the PDF cover page 
+
+01
+
+.
+
+Title
+
+Full Stack Web Development Job Bootcamp
+
+Subtext
+
+A 6-month bootcamp designed to help you land your dream tech job.
+
+Highlight Tech Stack
+
+HTML
+CSS
+JavaScript
+React
+Node.js
+MongoDB
+Express
+
+Buttons
+
+Enroll Now
+
+Know More
+
+Add a countdown timer
+
+Example
+
+Next Batch Starting In
+
+10 Days : 14 Hours : 20 Minutes
+
+Animation
+
+• Background parallax effect
+• CTA pulse animation
+
+5️⃣ HOW THE PROGRAM WORKS
+
+Inspired by Smart Interviews.
+
+Title
+
+Your 6 Month Journey to Success
+
+Steps
+
+1️⃣ Data Structures & Algorithms
+2️⃣ Frontend Development (HTML CSS JS React)
+3️⃣ Backend Development (Node JS)
+4️⃣ AI Modules & GenAI Tools
+5️⃣ Real Projects
+6️⃣ Placement Preparation
+
+Animation
+
+Step cards appear sequentially with slide-up animation.
+
+6️⃣ PROJECTS CAROUSEL
+
+Use projects from page 6 of the bootcamp PDF 
+
+01
+
+.
+
+Create a carousel slider with at least 5 projects.
+
+Projects
+
+Social Media App
+Interview Simulator
+Music Player
+Authentication System
+BusyBuy Ecommerce
+PhotoFolio
+Stock Market Analysis
+
+Card Design
+
+Project image
+Project title
+Short description
+
+Carousel behavior
+
+• Auto slide every 5 seconds
+• Arrow navigation
+• Mobile swipe enabled
+
+Hover animation
+
+Card lift + shadow.
+
+7️⃣ SKILLS YOU WILL MASTER
+
+Inspired by Smart Interviews “Tech Wizards”.
+
+Grid Cards
+
+Full-Stack Development
+React Development
+Backend APIs
+AI Tools Integration
+Database Design
+Security Implementation
+
+Animation
+
+Cards flip on hover.
+
+8️⃣ EVITERNSHIP COMMUNITY
+
+From Developers Club page in PDF 
+
+01
+
+.
+
+Title
+
+Join the EVITernship Developer Community
+
+Activities
+
+Expert Talks
+Open Source Projects
+Industry Talks
+Coding Contests
+Hackathons
+
+Layout
+
+Image cards grid.
+
+Animation
+
+Images zoom slightly on hover.
+
+9️⃣ STATS COUNTER SECTION
+
+Dark background section.
+
+Counters must animate from 0 to the number when visible.
+
+Counters
+
+Students Trained
+0 → 5000+
+
+Projects Built
+0 → 200+
+
+Partner Colleges
+0 → 100+
+
+Industry Mentors
+0 → 50+
+
+Animation
+
+Number counting animation triggered on scroll.
+
+🔟 CERTIFICATE SECTION
+
+Inspired by Smart Interviews certificate section.
+
+Show a certificate preview card
+
+Text
+
+Earn Internship Certification
+
+Show certificate mockup.
+
+Animation
+
+Tilt hover effect.
+
+1️⃣1️⃣ SUCCESS STORIES
+
+Carousel.
+
+Cards include
+
+Student photo
+Name
+Role achieved
+Testimonial
+
+Example
+
+“EVITernship helped me land my first developer internship.”
+
+Animation
+
+Auto carousel.
+
+1️⃣2️⃣ LIFE AT EVITERNSHIP
+
+Inspired by PrepInsta gallery.
+
+Grid of photos
+
+Training sessions
+Workshops
+Team events
+Hackathons
+
+Hover animation
+
+Image zoom.
+
+1️⃣3️⃣ MISSION VISION GOALS
+
+Dark section.
+
+Three cards
+
+Mission
+Vision
+Goals
+
+Use icons.
+
+Animation
+
+Cards fade in sequentially.
+
+1️⃣4️⃣ CONTACT / SUPPORT
+
+From page 12 of your PDF 
+
+01
+
+.
+
+Show support details
+
+Phone
+6304237115
+
+Email
+team@eviternship.com
+
+Include illustration of developer working.
+
+1️⃣5️⃣ FINAL CTA
+
+Large banner.
+
+Text
+
+Get the Tech Career You Deserve, Faster
+
+Buttons
+
+Enroll Now
+Explore Programs
+
+Background
+
+Dark gradient.
+
+Animation
+
+Floating glow effect.
+
+1️⃣6️⃣ FOOTER
+
+Sections
+
+Programs
+Bootcamp
+Internships
+Data Analysis
+
+Company
+About
+Careers
+
+Contact
+Email
+Phone
+
+Social icons
+
+LinkedIn
+Instagram
+YouTube
+
+⚡ Animations to include everywhere
+
+Use smooth animations similar to modern SaaS sites
+
+Scroll animations
+Fade Up
+Slide Left
+Scale In
+
+Counters
+Count from 0 → value
+
+Carousel
+Auto sliding
+
+Hover
+Card lift effect
