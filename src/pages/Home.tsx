@@ -31,25 +31,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import logoImage from "../../attached_assets/logo_-_Eviternship_1772863765020.png";
 
-import heroImg from "../assets/images/hero.jpg";
 import aboutImg from "../assets/images/about.jpg";
-import project1Img from "../assets/images/project-1.jpg";
-import mentor1Img from "../assets/images/mentor-1.jpg";
-import mentor2Img from "../assets/images/mentor-2.jpg";
-import training1Img from "../assets/images/training-1.jpg";
-import training2Img from "../assets/images/training-2.jpg";
-import cert1Img from "../assets/images/cert-1.jpg";
-import student1Img from "../assets/images/student-1.jpg";
-import student2Img from "../assets/images/student-2.jpg";
 
+import img1 from "../../attached_assets/learning/1.jpg";
+import img2 from "../../attached_assets/learning/2.jpg";
+import img3 from "../../attached_assets/learning/3.jpg";
+import cs from "../../attached_assets/learning/cs.jpg";
+import da from "../../attached_assets/learning/da.jpg";
+import offcam from "../../attached_assets/learning/offcam.png";
 
-
-// Project images with fallbacks
-import projectSocial from "../assets/images/project-social.jpg";
-import projectStock from "../assets/images/project-stock.jpg";
-import projectEcommerce from "../assets/images/project-ecommerce.jpg";
-import project2Img from "../assets/images/project-2.jpg";
-import communityImg from "../assets/images/community-1.jpg";
 
 const StatsCounter = ({ end, label, suffix = "+" }: { end: number, label: string, suffix?: string }) => {
   return (
@@ -262,158 +252,145 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-<div className="min-h-screen bg-white font-sans selection:bg-primary/30 overflow-x-hidden pt-20">
+
+ <>
+     <ScrollToTop />
+      <WhatsAppHelp />
+      <BatchNotification menuOpen={menuOpen} />
+
+
+      
+<div className="min-h-screen bg-white font-sans selection:bg-primary/30 pt-20">
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left" style={{ scaleX }} />
 
-      <ScrollToTop />
-      <WhatsAppHelp />
+
+      {/* HEADER */}
+      <header className="fixed top-0 left-0 right-0 w-full z-[100] bg-white/95 backdrop-blur-lg border-b shadow-sm">
+
+        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+
+          {/* LOGO */}
+          <a href="/" className="flex items-center">
+            <img src={logoImage} alt="EVITernship" className="h-10" />
+          </a>
+
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-8 font-semibold text-gray-700">
+
+            <a href="#roadmaps" className="hover:text-primary transition">
+              Roadmaps
+            </a>
+
+            <a href="#courses" className="hover:text-primary transition">
+              Courses
+            </a>
+
+            <a href="#resourses" className="hover:text-primary transition">
+              Resources
+            </a>
+
+            <a href="#trainings" className="hover:text-primary transition">
+              Trainings
+            </a>
+
+            <a href="#workshops" className="hover:text-primary transition">
+              Workshops
+            </a>
+
+            <a href="#community" className="hover:text-primary transition">
+              Community
+            </a>
+
+            <a href="#login" className="hover:text-primary transition">
+              Login
+            </a>
+
+          </nav>
 
 
+          {/* RIGHT SIDE */}
+          <div className="flex items-center gap-4">
+
+            {/* ENROLL BUTTON */}
+            <a href="#bootcamp">
+              <Button className="hidden md:inline-flex bg-primary text-white font-bold hover:scale-105 transition-all">
+                Enroll Now
+              </Button>
+            </a>
+
+            {/* HAMBURGER */}
+            <button
+              className="md:hidden text-primary"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+
+          </div>
+
+        </div>
 
 
+        {/* OVERLAY */}
+        {menuOpen && (
+          <div
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-0 bg-black/40 z-40"
+          />
+        )}
 
 
+        {/* MOBILE MENU */}
+        <div
+          className={`fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-50 transform transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+        >
 
+          <div className="flex flex-col gap-6 p-8 pt-24 font-semibold">
 
+            <a href="#roadmaps" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+              Roadmaps
+            </a>
 
+            <a href="#courses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+              Courses
+            </a>
 
+            <a href="#resourses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+              Resources
+            </a>
 
+            <a href="#trainings" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+              Trainings
+            </a>
 
+            <a href="#workshops" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+              Workshops
+            </a>
 
-{/* HEADER */}
-<header className="fixed top-0 left-0 right-0 w-full z-[100] bg-white/95 backdrop-blur-lg border-b shadow-sm">
+            <a href="#community" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+              Community
+            </a>
 
-  <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="#login" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+              Login
+            </a>
 
-    {/* LOGO */}
-    <a href="/" className="flex items-center">
-      <img src={logoImage} alt="EVITernship" className="h-10" />
-    </a>
+            <a href="#bootcamp" onClick={() => setMenuOpen(false)}>
+              <Button className="mt-6 bg-primary text-white font-bold w-full">
+                Enroll Now
+              </Button>
+            </a>
 
-    {/* DESKTOP NAV */}
-    <nav className="hidden md:flex items-center gap-8 font-semibold text-gray-700">
+          </div>
 
-      <a href="#roadmaps" className="hover:text-primary transition">
-        Roadmaps
-      </a>
+        </div>
 
-      <a href="#courses" className="hover:text-primary transition">
-        Courses
-      </a>
-
-      <a href="#resourses" className="hover:text-primary transition">
-        Resources
-      </a>
-
-      <a href="#trainings" className="hover:text-primary transition">
-        Trainings
-      </a>
-
-      <a href="#workshops" className="hover:text-primary transition">
-        Workshops
-      </a>
-
-      <a href="#community" className="hover:text-primary transition">
-        Community
-      </a>
-
-      <a href="#login" className="hover:text-primary transition">
-        Login
-      </a>
-
-    </nav>
-
-
-    {/* RIGHT SIDE */}
-    <div className="flex items-center gap-4">
-
-      {/* ENROLL BUTTON */}
-      <a href="#bootcamp">
-        <Button className="hidden md:inline-flex bg-primary text-white font-bold hover:scale-105 transition-all">
-          Enroll Now
-        </Button>
-      </a>
-
-      {/* HAMBURGER */}
-      <button
-        className="md:hidden text-primary"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        {menuOpen ? <X size={28} /> : <Menu size={28} />}
-      </button>
-
-    </div>
-
-  </div>
-
-
-  {/* OVERLAY */}
-  {menuOpen && (
-    <div
-      onClick={() => setMenuOpen(false)}
-      className="fixed inset-0 bg-black/40 z-40"
-    />
-  )}
-
-
-  {/* MOBILE MENU */}
-  <div
-    className={`fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
-      menuOpen ? "translate-x-0" : "translate-x-full"
-    }`}
-  >
-
-    <div className="flex flex-col gap-6 p-8 pt-24 font-semibold">
-
-      <a href="#roadmaps" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-        Roadmaps
-      </a>
-
-      <a href="#courses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-        Courses
-      </a>
-
-      <a href="#resourses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-        Resources
-      </a>
-
-      <a href="#trainings" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-        Trainings
-      </a>
-
-      <a href="#workshops" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-        Workshops
-      </a>
-
-      <a href="#community" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-        Community
-      </a>
-
-      <a href="#login" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-        Login
-      </a>
-
-      <a href="#bootcamp" onClick={() => setMenuOpen(false)}>
-        <Button className="mt-6 bg-primary text-white font-bold w-full">
-          Enroll Now
-        </Button>
-      </a>
-
-    </div>
-
-  </div>
-
-</header>
-
-
-
-
-
+      </header>
 
 
       {/* 1. HERO SECTION */}
-
-      <div className="pt-20">
+      <div >
         <section className="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -470,14 +447,6 @@ export default function Home() {
       </div>
 
 
-
-
-
-
-
-
-
-
       {/* 2. TRUSTED BY */}
       <section className="py-20 bg-gray-50/50 border-y overflow-hidden">
         <div className="container mx-auto px-4">
@@ -502,10 +471,6 @@ export default function Home() {
       </section>
 
 
-
-
-
-
       {/* 3. LEARNING PATHS */}
       <Section id="resourses" className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -525,32 +490,32 @@ export default function Home() {
               {
                 title: "Full Stack Development",
                 desc: "Learn React, Node.js, MongoDB and build production-ready web apps.",
-                img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+                img: img1
               },
               {
                 title: "Data Analysis",
                 desc: "Master Python, SQL, Tableau and Power BI for data-driven roles.",
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+                img: da
               },
               {
                 title: "Programming",
                 desc: "Build strong coding foundations with JavaScript and algorithms.",
-                img: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+                img: img2
               },
               {
                 title: "Interview Preparation",
                 desc: "Prepare with coding challenges and real mock interviews.",
-                img: "https://images.unsplash.com/photo-1580894908361-967195033215"
+                img: img3
               },
               {
                 title: "CS Core Subjects",
                 desc: "Understand DBMS, Operating Systems and System Design concepts.",
-                img: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f"
+                img: cs
               },
               {
                 title: "Off Campus Preparation",
                 desc: "Prepare for product-based companies and hiring drives.",
-                img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                img: offcam
               }
             ]
 
@@ -635,12 +600,6 @@ export default function Home() {
 
         </div>
       </Section>
-
-
-
-
-
-
 
 
       {/* 4. UPCOMING BOOTCAMP */}
@@ -919,184 +878,182 @@ export default function Home() {
 
 
 
+      {/* INDUSTRY TRAININGS */}
+      <Section id="trainings" className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
 
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-secondary mb-4">
+              Industry <span className="text-primary">Trainings</span>
+            </h2>
 
-{/* INDUSTRY TRAININGS */}
-<Section id="trainings" className="py-24 bg-gray-50">
-  <div className="container mx-auto px-4">
+            <p className="text-lg text-gray-500">
+              Structured training programs designed to build strong technical foundations.
+            </p>
+          </div>
 
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-secondary mb-4">
-        Industry <span className="text-primary">Trainings</span>
-      </h2>
-
-      <p className="text-lg text-gray-500">
-        Structured training programs designed to build strong technical foundations.
-      </p>
-    </div>
-
-    <Swiper
-      modules={[Autoplay, Pagination]}
-      spaceBetween={30}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 3500 }}
-      breakpoints={{
-        480: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
-      }}
-    >
-
-      {[
-        {
-          title: "Python Programming",
-          img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
-          desc: "Master Python fundamentals and build real-world applications."
-        },
-        {
-          title: "Full Stack Development",
-          img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-          desc: "Learn React, Node.js, Express and MongoDB to build web apps."
-        },
-        {
-          title: "Data Analytics",
-          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-          desc: "Analyze data using Python, SQL, Tableau and Power BI."
-        },
-        {
-          title: "Machine Learning",
-          img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-          desc: "Build ML models and learn predictive analytics."
-        },
-        {
-          title: "DSA & Problem Solving",
-          img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-          desc: "Master coding patterns used in product company interviews."
-        }
-      ].map((item, i) => (
-
-        <SwiperSlide key={i}>
-          <motion.div
-            whileHover={{ y: -10 }}
-            className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3500 }}
+            breakpoints={{
+              480: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
           >
 
-            <img
-              src={item.img}
-              className="w-full h-48 object-cover"
-            />
+            {[
+              {
+                title: "Python Programming",
+                img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
+                desc: "Master Python fundamentals and build real-world applications."
+              },
+              {
+                title: "Full Stack Development",
+                img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+                desc: "Learn React, Node.js, Express and MongoDB to build web apps."
+              },
+              {
+                title: "Data Analytics",
+                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+                desc: "Analyze data using Python, SQL, Tableau and Power BI."
+              },
+              {
+                title: "Machine Learning",
+                img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+                desc: "Build ML models and learn predictive analytics."
+              },
+              {
+                title: "DSA & Problem Solving",
+                img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                desc: "Master coding patterns used in product company interviews."
+              }
+            ].map((item, i) => (
 
-            <div className="p-6">
+              <SwiperSlide key={i}>
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
+                >
 
-              <h4 className="text-xl font-bold text-secondary mb-2">
-                {item.title}
-              </h4>
+                  <img
+                    src={item.img}
+                    className="w-full h-48 object-cover"
+                  />
 
-              <p className="text-gray-500 text-sm">
-                {item.desc}
-              </p>
+                  <div className="p-6">
 
-            </div>
+                    <h4 className="text-xl font-bold text-secondary mb-2">
+                      {item.title}
+                    </h4>
 
-          </motion.div>
-        </SwiperSlide>
+                    <p className="text-gray-500 text-sm">
+                      {item.desc}
+                    </p>
 
-      ))}
+                  </div>
 
-    </Swiper>
+                </motion.div>
+              </SwiperSlide>
 
-  </div>
-</Section>
+            ))}
+<br /><br />
+          </Swiper>
+
+        </div>
+      </Section>
 
 
-{/* HANDS-ON WORKSHOPS */}
-<Section id="workshops" className="py-24 bg-white">
-  <div className="container mx-auto px-4">
+      {/* HANDS-ON WORKSHOPS */}
+      <Section id="workshops" className="py-24 bg-white">
+        <div className="container mx-auto px-4">
 
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-secondary mb-4">
-        Hands-On <span className="text-primary">Workshops</span>
-      </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-secondary mb-4">
+              Hands-On <span className="text-primary">Workshops</span>
+            </h2>
 
-      <p className="text-lg text-gray-500">
-        Interactive workshops to prepare students for industry challenges.
-      </p>
-    </div>
+            <p className="text-lg text-gray-500">
+              Interactive workshops to prepare students for industry challenges.
+            </p>
+          </div>
 
-    <Swiper
-      modules={[Autoplay, Pagination]}
-      spaceBetween={30}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 3500 }}
-      breakpoints={{
-        480: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
-      }}
-    >
-
-      {[
-        {
-          title: "AI Tools Workshop",
-          img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-          desc: "Learn ChatGPT, AI automation and productivity tools."
-        },
-        {
-          title: "Resume Building Workshop",
-          img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
-          desc: "Create ATS-friendly resumes that attract recruiters."
-        },
-        {
-          title: "Mock Interview Workshop",
-          img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-          desc: "Practice real interview scenarios with industry mentors."
-        },
-        {
-          title: "TCS NQT Preparation",
-          img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
-          desc: "Focused training for TCS hiring process."
-        },
-        {
-          title: "Coding Contest Workshop",
-          img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
-          desc: "Improve problem solving through coding competitions."
-        }
-      ].map((item, i) => (
-
-        <SwiperSlide key={i}>
-          <motion.div
-            whileHover={{ y: -10 }}
-            className="bg-gray-50 rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3500 }}
+            breakpoints={{
+              480: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
           >
 
-            <img
-              src={item.img}
-              className="w-full h-48 object-cover"
-            />
+            {[
+              {
+                title: "AI Tools Workshop",
+                img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+                desc: "Learn ChatGPT, AI automation and productivity tools."
+              },
+              {
+                title: "Resume Building Workshop",
+                img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+                desc: "Create ATS-friendly resumes that attract recruiters."
+              },
+              {
+                title: "Mock Interview Workshop",
+                img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+                desc: "Practice real interview scenarios with industry mentors."
+              },
+              {
+                title: "TCS NQT Preparation",
+                img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
+                desc: "Focused training for TCS hiring process."
+              },
+              {
+                title: "Coding Contest Workshop",
+                img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+                desc: "Improve problem solving through coding competitions."
+              }
+            ].map((item, i) => (
 
-            <div className="p-6">
+              <SwiperSlide key={i}>
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  className="bg-gray-50 rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
+                >
 
-              <h4 className="text-xl font-bold text-secondary mb-2">
-                {item.title}
-              </h4>
+                  <img
+                    src={item.img}
+                    className="w-full h-48 object-cover"
+                  />
 
-              <p className="text-gray-500 text-sm">
-                {item.desc}
-              </p>
+                  <div className="p-6">
 
-            </div>
+                    <h4 className="text-xl font-bold text-secondary mb-2">
+                      {item.title}
+                    </h4>
 
-          </motion.div>
-        </SwiperSlide>
+                    <p className="text-gray-500 text-sm">
+                      {item.desc}
+                    </p>
 
-      ))}
+                  </div>
 
-    </Swiper>
+                </motion.div>
+              </SwiperSlide>
 
-  </div>
-</Section>
+            ))}
+<br /><br />
+          </Swiper>
+
+        </div>
+      </Section>
 
       {/* 7. OUR TOP COURSES */}
       <Section id="courses" className="py-24 md:py-32 bg-gray-50">
@@ -1286,69 +1243,69 @@ export default function Home() {
         </div>
       </Section>
 
-{/* 9. DEVELOPER ROADMAPS */}
-<Section id="roadmaps" className="py-24 bg-secondary relative overflow-hidden scroll-mt-24">
+      {/* 9. DEVELOPER ROADMAPS */}
+      <Section id="roadmaps" className="py-24 bg-secondary relative overflow-hidden scroll-mt-24">
 
-  <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
 
-    <div className="text-center mb-16">
-<h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-  Developer <span className="text-primary">Roadmaps</span>
-</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+              Developer <span className="text-primary">Roadmaps</span>
+            </h2>
 
-      <p className="text-white/70 text-lg">
-        Choose a career path and explore the roadmap to become an expert.
-      </p>
-    </div>
+            <p className="text-white/70 text-lg">
+              Choose a career path and explore the roadmap to become an expert.
+            </p>
+          </div>
 
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-      {[
-        { title: "Frontend", link: "https://roadmap.sh/frontend" },
-        { title: "Backend", link: "https://roadmap.sh/backend" },
-        { title: "Full Stack", link: "https://roadmap.sh/full-stack" },
-        { title: "DevOps", link: "https://roadmap.sh/devops" },
-        { title: "Data Analyst", link: "https://roadmap.sh/data-analyst" },
-        { title: "AI Engineer", link: "https://roadmap.sh/ai-engineer" },
-        { title: "Cyber Security", link: "https://roadmap.sh/cyber-security" },
-        { title: "Android", link: "https://roadmap.sh/android" },
-        { title: "PostgreSQL", link: "https://roadmap.sh/postgresql-dba" },
-        { title: "Machine Learning", link: "https://roadmap.sh/machine-learning" },
-        { title: "Game Developer", link: "https://roadmap.sh/game-developer" },
-        { title: "Product Manager", link: "https://roadmap.sh/product-manager" }
-      ].map((item, i) => (
+            {[
+              { title: "Frontend", link: "https://roadmap.sh/frontend" },
+              { title: "Backend", link: "https://roadmap.sh/backend" },
+              { title: "Full Stack", link: "https://roadmap.sh/full-stack" },
+              { title: "DevOps", link: "https://roadmap.sh/devops" },
+              { title: "Data Analyst", link: "https://roadmap.sh/data-analyst" },
+              { title: "AI Engineer", link: "https://roadmap.sh/ai-engineer" },
+              { title: "Cyber Security", link: "https://roadmap.sh/cyber-security" },
+              { title: "Android", link: "https://roadmap.sh/android" },
+              { title: "PostgreSQL", link: "https://roadmap.sh/postgresql-dba" },
+              { title: "Machine Learning", link: "https://roadmap.sh/machine-learning" },
+              { title: "Game Developer", link: "https://roadmap.sh/game-developer" },
+              { title: "Product Manager", link: "https://roadmap.sh/product-manager" }
+            ].map((item, i) => (
 
-        <motion.a
-          key={i}
-          href={item.link}
-          target="_blank"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.05 }}
-          className="group bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-lg hover:border-primary transition-all cursor-pointer"
-        >
+              <motion.a
+                key={i}
+                href={item.link}
+                target="_blank"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                className="group bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-lg hover:border-primary transition-all cursor-pointer"
+              >
 
-          <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
 
-            <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
-              {item.title}
-            </h3>
+                  <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
 
-            <ChevronRight className="text-white/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="text-white/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+
+                </div>
+
+              </motion.a>
+
+            ))}
 
           </div>
 
-        </motion.a>
-
-      ))}
-
-    </div>
-
-  </div>
-</Section>
+        </div>
+      </Section>
 
 
       {/* 9. STATS COUNTER */}
@@ -1504,6 +1461,7 @@ export default function Home() {
         </div>
       </Section>
 
+
       {/* FOOTER */}
       <footer className="bg-white pt-24 pb-12 border-t">
         <div className="container mx-auto px-4">
@@ -1555,7 +1513,6 @@ export default function Home() {
 
 
 
-      <BatchNotification menuOpen={menuOpen} />
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -1591,5 +1548,7 @@ export default function Home() {
         }
       `}</style>
     </div>
+
+    </>
   );
 }
