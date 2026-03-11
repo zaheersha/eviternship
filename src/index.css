@@ -61,6 +61,8 @@
   }
 }
 
+
+
 .animate-marquee {
   animation: marquee 18s linear infinite;
 }
@@ -206,4 +208,16 @@
 
 .bg-gradient-orange {
   @apply bg-gradient-to-r from-[#FFA65C] to-[#FF7A18];
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  will-change: transform;
 }

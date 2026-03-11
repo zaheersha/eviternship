@@ -262,7 +262,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-primary/30 overflow-x-hidden">
+<div className="min-h-screen bg-white font-sans selection:bg-primary/30 overflow-x-hidden pt-20">
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left" style={{ scaleX }} />
 
       <ScrollToTop />
@@ -280,122 +280,130 @@ export default function Home() {
 
 
 
-      {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-lg border-b">
+{/* HEADER */}
+<header className="fixed top-0 left-0 right-0 w-full z-[100] bg-white/95 backdrop-blur-lg border-b shadow-sm">
 
-        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+  <div className="container mx-auto px-4 h-20 flex items-center justify-between">
 
-          {/* LOGO */}
-          <a href="/" className="flex items-center">
-            <img src={logoImage} alt="EVITernship" className="h-10" />
-          </a>
+    {/* LOGO */}
+    <a href="/" className="flex items-center">
+      <img src={logoImage} alt="EVITernship" className="h-10" />
+    </a>
 
-          {/* DESKTOP NAV */}
-          <nav className="hidden md:flex items-center gap-8 font-semibold">
-            <a href="#bootcamp" className="hover:text-primary">Bootcamp</a>
-            <a href="#Interviews" className="hover:text-primary">Interviews</a>
+    {/* DESKTOP NAV */}
+    <nav className="hidden md:flex items-center gap-8 font-semibold text-gray-700">
 
-            <a href="#courses" className="hover:text-primary">Courses</a>
-            <a href="#resourses" className="hover:text-primary">Resourses</a>
+      <a href="#roadmaps" className="hover:text-primary transition">
+        Roadmaps
+      </a>
 
-            <a href="#community" className="hover:text-primary">Community</a>
-            <a href="#projects" className="hover:text-primary">Projects</a>
+      <a href="#courses" className="hover:text-primary transition">
+        Courses
+      </a>
 
-            <a href="#Login" className="hover:text-primary">Login</a>
-          </nav>
+      <a href="#resourses" className="hover:text-primary transition">
+        Resources
+      </a>
 
-          <div className="flex items-center gap-4">
+      <a href="#trainings" className="hover:text-primary transition">
+        Trainings
+      </a>
 
-            <Button className="hidden md:inline-flex bg-primary text-white font-bold">
-              Enroll Now
-            </Button>
+      <a href="#workshops" className="hover:text-primary transition">
+        Workshops
+      </a>
 
-            {/* HAMBURGER */}
-            <button
-              className="md:hidden text-primary z-[60]"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {menuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+      <a href="#community" className="hover:text-primary transition">
+        Community
+      </a>
 
-          </div>
+      <a href="#login" className="hover:text-primary transition">
+        Login
+      </a>
 
-        </div>
+    </nav>
 
 
-        {/* DARK OVERLAY */}
-        {menuOpen && (
-          <div
-            onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 bg-black/40 z-40"
-          />
-        )}
+    {/* RIGHT SIDE */}
+    <div className="flex items-center gap-4">
 
-        {/* MOBILE MENU */}
-        <div
-          className={`fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-50 transform transition-transform duration-300
-${menuOpen ? "translate-x-0" : "translate-x-full"}`}
-        >
+      {/* ENROLL BUTTON */}
+      <a href="#bootcamp">
+        <Button className="hidden md:inline-flex bg-primary text-white font-bold hover:scale-105 transition-all">
+          Enroll Now
+        </Button>
+      </a>
 
-          <div className="flex flex-col gap-6 p-8 pt-24 font-semibold">
+      {/* HAMBURGER */}
+      <button
+        className="md:hidden text-primary"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? <X size={28} /> : <Menu size={28} />}
+      </button>
 
-            <a
-              href="#bootcamp"
-              onClick={() => setMenuOpen(false)}
-              className="text-lg hover:text-primary"
-            >
-              Bootcamp
-            </a>
+    </div>
 
-            <a
-              href="#Interviews"
-              onClick={() => setMenuOpen(false)}
-              className="text-lg hover:text-primary"
-            >
-              Interviews
-            </a>
+  </div>
 
-            <a
-              href="#courses"
-              onClick={() => setMenuOpen(false)}
-              className="text-lg hover:text-primary"
-            >
-              Courses
-            </a>
 
-            <a
-              href="#resourses"
-              onClick={() => setMenuOpen(false)}
-              className="text-lg hover:text-primary"
-            >
-              Resourses
-            </a>
+  {/* OVERLAY */}
+  {menuOpen && (
+    <div
+      onClick={() => setMenuOpen(false)}
+      className="fixed inset-0 bg-black/40 z-40"
+    />
+  )}
 
-            <a
-              href="#projects"
-              onClick={() => setMenuOpen(false)}
-              className="text-lg hover:text-primary"
-            >
-              Projects
-            </a>
 
-            <a
-              href="#Login"
-              onClick={() => setMenuOpen(false)}
-              className="text-lg hover:text-primary"
-            >
-              Login
-            </a>
+  {/* MOBILE MENU */}
+  <div
+    className={`fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
+      menuOpen ? "translate-x-0" : "translate-x-full"
+    }`}
+  >
 
-            <Button className="mt-6 bg-primary text-white font-bold">
-              Enroll Now
-            </Button>
+    <div className="flex flex-col gap-6 p-8 pt-24 font-semibold">
 
-          </div>
+      <a href="#roadmaps" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+        Roadmaps
+      </a>
 
-        </div>
+      <a href="#courses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+        Courses
+      </a>
 
-      </header>
+      <a href="#resourses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+        Resources
+      </a>
+
+      <a href="#trainings" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+        Trainings
+      </a>
+
+      <a href="#workshops" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+        Workshops
+      </a>
+
+      <a href="#community" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+        Community
+      </a>
+
+      <a href="#login" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
+        Login
+      </a>
+
+      <a href="#bootcamp" onClick={() => setMenuOpen(false)}>
+        <Button className="mt-6 bg-primary text-white font-bold w-full">
+          Enroll Now
+        </Button>
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
 
 
 
@@ -492,6 +500,11 @@ ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
           </div>
         </div>
       </section>
+
+
+
+
+
 
       {/* 3. LEARNING PATHS */}
       <Section id="resourses" className="py-24 bg-gray-50">
@@ -908,57 +921,182 @@ ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
 
 
 
-      {/* 6. PROJECTS CAROUSEL */}
-      <Section id="projects" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-xl">
-              <h2 className="text-4xl font-bold text-secondary mb-4">Masterpiece Projects</h2>
-              <p className="text-lg text-gray-500">Real-world applications built by our students during the bootcamp.</p>
-            </div>
-          </div>
+{/* INDUSTRY TRAININGS */}
+<Section id="trainings" className="py-24 bg-gray-50">
+  <div className="container mx-auto px-4">
 
-          <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 5000 }}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 2.5 }
-            }}
-            className="pb-16"
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-secondary mb-4">
+        Industry <span className="text-primary">Trainings</span>
+      </h2>
+
+      <p className="text-lg text-gray-500">
+        Structured training programs designed to build strong technical foundations.
+      </p>
+    </div>
+
+    <Swiper
+      modules={[Autoplay, Pagination]}
+      spaceBetween={30}
+      slidesPerView={1}
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 3500 }}
+      breakpoints={{
+        480: { slidesPerView: 1 },
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }}
+    >
+
+      {[
+        {
+          title: "Python Programming",
+          img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
+          desc: "Master Python fundamentals and build real-world applications."
+        },
+        {
+          title: "Full Stack Development",
+          img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+          desc: "Learn React, Node.js, Express and MongoDB to build web apps."
+        },
+        {
+          title: "Data Analytics",
+          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+          desc: "Analyze data using Python, SQL, Tableau and Power BI."
+        },
+        {
+          title: "Machine Learning",
+          img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+          desc: "Build ML models and learn predictive analytics."
+        },
+        {
+          title: "DSA & Problem Solving",
+          img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+          desc: "Master coding patterns used in product company interviews."
+        }
+      ].map((item, i) => (
+
+        <SwiperSlide key={i}>
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
           >
-            {[
-              { title: "Social Media App", img: projectSocial, desc: "Dynamic platform with feeds, profiles, and chats." },
-              { title: "Stock Analysis", img: projectStock, desc: "Real-time market tracking and data visualization." },
-              { title: "BusyBuy Ecommerce", img: projectEcommerce, desc: "A full-featured online store with cart and payments." },
-              { title: "Interview Simulator", img: project1Img, desc: "AI-powered mock interview practice tool." },
-              { title: "PhotoFolio", img: project2Img, desc: "Modern gallery app for professional photographers." }
-            ].map((p, i) => (
-              <SwiperSlide key={i}>
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all h-full"
-                >
-                  <img src={p.img} alt={p.title} className="w-full h-48 object-cover" loading="lazy" />
-                  <div className="p-8">
-                    <h4 className="text-xl font-bold text-secondary mb-2">{p.title}</h4>
-                    <p className="text-gray-500 text-sm">{p.desc}</p>
-                    <Button variant="link" className="px-0 mt-4 font-bold text-primary">Case Study <ArrowRight className="ml-1 w-4 h-4" /></Button>
-                  </div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-            <br /><br />
-          </Swiper>
-        </div>
-      </Section>
+
+            <img
+              src={item.img}
+              className="w-full h-48 object-cover"
+            />
+
+            <div className="p-6">
+
+              <h4 className="text-xl font-bold text-secondary mb-2">
+                {item.title}
+              </h4>
+
+              <p className="text-gray-500 text-sm">
+                {item.desc}
+              </p>
+
+            </div>
+
+          </motion.div>
+        </SwiperSlide>
+
+      ))}
+
+    </Swiper>
+
+  </div>
+</Section>
 
 
+{/* HANDS-ON WORKSHOPS */}
+<Section id="workshops" className="py-24 bg-white">
+  <div className="container mx-auto px-4">
 
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-secondary mb-4">
+        Hands-On <span className="text-primary">Workshops</span>
+      </h2>
+
+      <p className="text-lg text-gray-500">
+        Interactive workshops to prepare students for industry challenges.
+      </p>
+    </div>
+
+    <Swiper
+      modules={[Autoplay, Pagination]}
+      spaceBetween={30}
+      slidesPerView={1}
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 3500 }}
+      breakpoints={{
+        480: { slidesPerView: 1 },
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }}
+    >
+
+      {[
+        {
+          title: "AI Tools Workshop",
+          img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+          desc: "Learn ChatGPT, AI automation and productivity tools."
+        },
+        {
+          title: "Resume Building Workshop",
+          img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+          desc: "Create ATS-friendly resumes that attract recruiters."
+        },
+        {
+          title: "Mock Interview Workshop",
+          img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+          desc: "Practice real interview scenarios with industry mentors."
+        },
+        {
+          title: "TCS NQT Preparation",
+          img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
+          desc: "Focused training for TCS hiring process."
+        },
+        {
+          title: "Coding Contest Workshop",
+          img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+          desc: "Improve problem solving through coding competitions."
+        }
+      ].map((item, i) => (
+
+        <SwiperSlide key={i}>
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="bg-gray-50 rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
+          >
+
+            <img
+              src={item.img}
+              className="w-full h-48 object-cover"
+            />
+
+            <div className="p-6">
+
+              <h4 className="text-xl font-bold text-secondary mb-2">
+                {item.title}
+              </h4>
+
+              <p className="text-gray-500 text-sm">
+                {item.desc}
+              </p>
+
+            </div>
+
+          </motion.div>
+        </SwiperSlide>
+
+      ))}
+
+    </Swiper>
+
+  </div>
+</Section>
 
       {/* 7. OUR TOP COURSES */}
       <Section id="courses" className="py-24 md:py-32 bg-gray-50">
@@ -1148,7 +1286,69 @@ ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
         </div>
       </Section>
 
+{/* 9. DEVELOPER ROADMAPS */}
+<Section id="roadmaps" className="py-24 bg-secondary relative overflow-hidden scroll-mt-24">
 
+  <div className="container mx-auto px-4">
+
+    <div className="text-center mb-16">
+<h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+  Developer <span className="text-primary">Roadmaps</span>
+</h2>
+
+      <p className="text-white/70 text-lg">
+        Choose a career path and explore the roadmap to become an expert.
+      </p>
+    </div>
+
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      {[
+        { title: "Frontend", link: "https://roadmap.sh/frontend" },
+        { title: "Backend", link: "https://roadmap.sh/backend" },
+        { title: "Full Stack", link: "https://roadmap.sh/full-stack" },
+        { title: "DevOps", link: "https://roadmap.sh/devops" },
+        { title: "Data Analyst", link: "https://roadmap.sh/data-analyst" },
+        { title: "AI Engineer", link: "https://roadmap.sh/ai-engineer" },
+        { title: "Cyber Security", link: "https://roadmap.sh/cyber-security" },
+        { title: "Android", link: "https://roadmap.sh/android" },
+        { title: "PostgreSQL", link: "https://roadmap.sh/postgresql-dba" },
+        { title: "Machine Learning", link: "https://roadmap.sh/machine-learning" },
+        { title: "Game Developer", link: "https://roadmap.sh/game-developer" },
+        { title: "Product Manager", link: "https://roadmap.sh/product-manager" }
+      ].map((item, i) => (
+
+        <motion.a
+          key={i}
+          href={item.link}
+          target="_blank"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.05 }}
+          className="group bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-lg hover:border-primary transition-all cursor-pointer"
+        >
+
+          <div className="flex items-center justify-between">
+
+            <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
+              {item.title}
+            </h3>
+
+            <ChevronRight className="text-white/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+
+          </div>
+
+        </motion.a>
+
+      ))}
+
+    </div>
+
+  </div>
+</Section>
 
 
       {/* 9. STATS COUNTER */}
@@ -1346,6 +1546,15 @@ ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
           </div>
         </div>
       </footer>
+
+
+
+
+
+
+
+
+
       <BatchNotification menuOpen={menuOpen} />
       <style>{`
         @keyframes scroll {
