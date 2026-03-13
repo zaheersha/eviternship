@@ -251,6 +251,17 @@ export default function Home() {
   });
   const [menuOpen, setMenuOpen] = useState(false)
 
+  useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [menuOpen]);
+
   return (
 
  <>
@@ -258,14 +269,8 @@ export default function Home() {
       <WhatsAppHelp />
       <BatchNotification menuOpen={menuOpen} />
 
-
-      
-<div className="min-h-screen bg-white font-sans selection:bg-primary/30 pt-20">
-      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left" style={{ scaleX }} />
-
-
-      {/* HEADER */}
-      <header className="fixed top-0 left-0 right-0 w-full z-[100] bg-white/95 backdrop-blur-lg border-b shadow-sm">
+      {/* HEADER — at top level, outside any wrapper div */}
+      <header className="fixed top-0 left-0 right-0 w-full z-[100] bg-white border-b shadow-sm">
 
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
 
@@ -321,9 +326,9 @@ export default function Home() {
             {/* HAMBURGER */}
             <button
               className="md:hidden text-primary"
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={() => setMenuOpen(true)}
             >
-              {menuOpen ? <X size={28} /> : <Menu size={28} />}
+              <Menu size={28} />
             </button>
 
           </div>
@@ -331,62 +336,73 @@ export default function Home() {
         </div>
 
 
-        {/* OVERLAY */}
-        {menuOpen && (
-          <div
-            onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 bg-black/40 z-40"
-          />
-        )}
+      </header>
 
-
-        {/* MOBILE MENU */}
+      {/* OVERLAY */}
+      {menuOpen && (
         <div
-          className={`fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-50 transform transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"
-            }`}
+          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 bg-black/40 z-[110]"
+        />
+      )}
+
+      {/* MOBILE MENU */}
+      <div
+        className={`fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-[120] transform transition-transform duration-300 overflow-y-auto ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Close button inside the drawer */}
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="absolute top-5 right-5 text-gray-500 hover:text-primary"
         >
+          <X size={28} />
+        </button>
 
-          <div className="flex flex-col gap-6 p-8 pt-24 font-semibold">
+        <div className="flex flex-col gap-6 p-8 pt-20 font-semibold">
 
-            <a href="#roadmaps" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-              Roadmaps
-            </a>
+          <a href="#roadmaps" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
+            Roadmaps
+          </a>
 
-            <a href="#courses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-              Courses
-            </a>
+          <a href="#courses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
+            Courses
+          </a>
 
-            <a href="#resourses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-              Resources
-            </a>
+          <a href="#resourses" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
+            Resources
+          </a>
 
-            <a href="#trainings" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-              Trainings
-            </a>
+          <a href="#trainings" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
+            Trainings
+          </a>
 
-            <a href="#workshops" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-              Workshops
-            </a>
+          <a href="#workshops" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
+            Workshops
+          </a>
 
-            <a href="#community" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-              Community
-            </a>
+          <a href="#community" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
+            Community
+          </a>
 
-            <a href="#login" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary">
-              Login
-            </a>
+          <a href="#login" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
+            Login
+          </a>
 
-            <a href="#bootcamp" onClick={() => setMenuOpen(false)}>
-              <Button className="mt-6 bg-primary text-white font-bold w-full">
-                Enroll Now
-              </Button>
-            </a>
-
-          </div>
+          <a href="#bootcamp" onClick={() => setMenuOpen(false)}>
+            <Button className="mt-6 bg-primary text-white font-bold w-full">
+              Enroll Now
+            </Button>
+          </a>
 
         </div>
+      </div>
 
-      </header>
+      {/* Scroll progress bar — at root level, NOT inside any wrapper div */}
+      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left" style={{ scaleX }} />
+
+<div className="min-h-screen bg-white font-sans selection:bg-primary/30 pt-20">
 
 
       {/* 1. HERO SECTION */}

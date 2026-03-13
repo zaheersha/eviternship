@@ -219,5 +219,4 @@ html {
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  will-change: transform;
 }
