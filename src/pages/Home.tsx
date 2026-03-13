@@ -23,7 +23,7 @@ import BatchNotification from "../components/ui/BatchNotification";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import CountUp from "react-countup";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination, FreeMode } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -270,7 +270,7 @@ export default function Home() {
       <BatchNotification menuOpen={menuOpen} />
 
       {/* HEADER — at top level, outside any wrapper div */}
-      <header className="fixed top-0 left-0 right-0 w-full z-[100] bg-white border-b shadow-sm">
+      <header className="fixed top-0 left-0 right-0 w-full z-[100] bg-white/95 backdrop-blur-lg border-b shadow-sm">
 
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
 
@@ -399,10 +399,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Scroll progress bar — at root level, NOT inside any wrapper div */}
-      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left" style={{ scaleX }} />
-
 <div className="min-h-screen bg-white font-sans selection:bg-primary/30 pt-20">
+      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left" style={{ scaleX }} />
 
 
       {/* 1. HERO SECTION */}
@@ -584,12 +582,17 @@ export default function Home() {
                 <div className="block lg:hidden">
 
                   <Swiper
-                    modules={[Autoplay, Pagination]}
-                    slidesPerView={1}
-                    spaceBetween={20}
+                    modules={[Autoplay, Pagination, FreeMode]}
+                    slidesPerView={1.15}
+                    spaceBetween={16}
+                    centeredSlides={true}
+                    freeMode={{ enabled: true, sticky: false, momentumRatio: 0.4 }}
                     pagination={{ clickable: true }}
-                    autoplay={{ delay: 3000 }}
-                  ><br /><br />
+                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                    speed={700}
+                    grabCursor={true}
+                    className="pb-10"
+                  >
                     {paths.map((item, i) => (
                       <SwiperSlide key={i}>
                         <PathCard item={item} />
