@@ -213,10 +213,26 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
-
 
 body {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* === SWIPER SMOOTH TOUCH === */
+.swiper {
+  touch-action: pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+
+.swiper-slide {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1) !important;
 }

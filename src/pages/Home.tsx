@@ -535,15 +535,14 @@ export default function Home() {
 
 
             const PathCard = ({ item }: { item: LearningPath }) => (
-              <motion.div
-                whileHover={{ y: -8 }}
-                className="group relative rounded-3xl overflow-hidden shadow-lg cursor-pointer"
-              >
+              <div className="group relative rounded-3xl overflow-hidden shadow-lg cursor-pointer will-change-transform">
 
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-[260px] md:h-[300px] object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-[260px] md:h-[300px] object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -556,7 +555,6 @@ export default function Home() {
 
                   <div className="w-12 h-[3px] bg-primary mx-auto rounded-full mb-3"></div>
 
-                  {/* MOBILE → always visible */}
                   <p className="text-sm text-gray-200 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
                     {item.desc}
                   </p>
@@ -571,7 +569,7 @@ export default function Home() {
 
                 </div>
 
-              </motion.div>
+              </div>
             )
 
 
@@ -582,19 +580,20 @@ export default function Home() {
                 <div className="block lg:hidden">
 
                   <Swiper
-                    modules={[Autoplay, Pagination, FreeMode]}
-                    slidesPerView={1.15}
-                    spaceBetween={16}
+                    modules={[Pagination]}
+                    slidesPerView={1.12}
+                    spaceBetween={14}
                     centeredSlides={true}
-                    freeMode={{ enabled: true, sticky: false, momentumRatio: 0.4 }}
+                    speed={380}
+                    resistance={true}
+                    resistanceRatio={0.65}
                     pagination={{ clickable: true }}
-                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-                    speed={700}
                     grabCursor={true}
-                    className="pb-10"
+                    cssMode={false}
+                    className="pb-10 select-none"
                   >
                     {paths.map((item, i) => (
-                      <SwiperSlide key={i}>
+                      <SwiperSlide key={i} className="py-2">
                         <PathCard item={item} />
                       </SwiperSlide>
                     ))}
