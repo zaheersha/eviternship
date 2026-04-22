@@ -41,6 +41,9 @@ import da from "../../attached_assets/learning/da.jpg";
 import offcam from "../../attached_assets/learning/offcam.png";
 
 
+
+
+
 const StatsCounter = ({ end, label, suffix = "+" }: { end: number, label: string, suffix?: string }) => {
   return (
     <div className="text-center">
@@ -80,6 +83,7 @@ const ScrollToTop = () => {
   }, []);
 
   return (
+
     <AnimatePresence>
       {isVisible && (
         <motion.button
@@ -162,8 +166,8 @@ const WhatsAppHelp = () => {
 
 const CountdownTimer = () => {
 
-  // Target date → March 20, 2026
-  const targetDate = new Date("2026-03-20T00:00:00");
+// Target date → May 15, 2026
+const targetDate = new Date("2026-05-15T00:00:00");
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -252,20 +256,20 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-  if (menuOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-  return () => {
-    document.body.style.overflow = "";
-  };
-}, [menuOpen]);
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
 
- <>
-     <ScrollToTop />
+    <>
+      <ScrollToTop />
       <WhatsAppHelp />
       <BatchNotification menuOpen={menuOpen} />
 
@@ -305,7 +309,9 @@ export default function Home() {
             <a href="#community" className="hover:text-primary transition">
               Community
             </a>
-
+  <a href="#contact" className="hover:text-primary transition">
+              Contact
+            </a>
             <a href="#login" className="hover:text-primary transition">
               Login
             </a>
@@ -348,9 +354,8 @@ export default function Home() {
 
       {/* MOBILE MENU */}
       <div
-        className={`fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-[120] transform transition-transform duration-300 overflow-y-auto ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-screen w-[280px] bg-white shadow-2xl z-[120] transform transition-transform duration-300 overflow-y-auto ${menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Close button inside the drawer */}
         <button
@@ -385,7 +390,9 @@ export default function Home() {
           <a href="#community" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
             Community
           </a>
-
+ <a href="#contact" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
+            Contact
+          </a>
           <a href="#login" onClick={() => setMenuOpen(false)} className="text-lg hover:text-primary transition-colors">
             Login
           </a>
@@ -399,685 +406,768 @@ export default function Home() {
         </div>
       </div>
 
-<div className="min-h-screen bg-white font-sans selection:bg-primary/30 pt-20">
-      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left" style={{ scaleX }} />
+      <div className="min-h-screen bg-white font-sans selection:bg-primary/30 pt-20">
+        <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left" style={{ scaleX }} />
 
 
-      {/* 1. HERO SECTION */}
-      <div >
-        <section className="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="space-y-8"
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-primary font-bold text-sm">
-                  <Zap className="w-4 h-4" /> Next Batch Starting Soon
-                </div>
-                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-secondary leading-[1.1]">
-                  Launch Your <span className="gradient-text">Tech Career</span> with EvITernship
-                </h1>
-                <p className="text-xl text-gray-600 max-w-lg leading-relaxed">
-                  Learn real-world skills through internships, projects, and mentorship designed to make you industry ready.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-primary text-white h-14 px-10 text-lg font-bold hover:scale-105 transition-all shadow-xl shadow-primary/25 group">
-                    Explore Programs <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button size="lg" variant="outline" className="h-14 px-10 text-lg font-bold border-2 hover:bg-gray-50 transition-all">
-                    Enroll Now
-                  </Button>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative"
-              >
-                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-square md:aspect-[4/5] lg:aspect-square">
-                  <img src={"https://media.istockphoto.com/photos/elearning-education-concept-learning-online-picture-id1290864946?b=1&k=20&m=1290864946&s=170667a&w=0&h=zZq7rG5McSptSIpEm9f8iTGd3Mrdkcslakr91T7qTYM="} alt="Students" className="object-cover w-full h-full" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent"></div>
-                </div>
+        {/* 1. HERO SECTION */}
+        <div >
+          <section className="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
+              <div className="grid md:grid-cols-2 gap-16 items-center">
                 <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl shadow-2xl max-w-[200px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="space-y-8"
                 >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="bg-green-500 w-3 h-3 rounded-full animate-pulse"></div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-gray-500">Live Mentorship</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-primary font-bold text-sm">
+                    <Zap className="w-4 h-4" /> Next Batch Starting Soon
                   </div>
-                  <p className="text-sm font-bold text-secondary">Get 1:1 guidance from industry experts</p>
+                  <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-secondary leading-[1.1]">
+                    Launch Your <span className="gradient-text">Tech Career</span> with EvITernship
+                  </h1>
+                  <p className="text-xl text-gray-600 max-w-lg leading-relaxed">
+                    Learn real-world skills through internships, projects, and mentorship designed to make you industry ready.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button size="lg" className="bg-primary text-white h-14 px-10 text-lg font-bold hover:scale-105 transition-all shadow-xl shadow-primary/25 group">
+                      Explore Programs <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                    <Button size="lg" variant="outline" className="h-14 px-10 text-lg font-bold border-2 hover:bg-gray-50 transition-all">
+                      Enroll Now
+                    </Button>
+                  </div>
                 </motion.div>
-              </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="relative"
+                >
+                  <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-square md:aspect-[4/5] lg:aspect-square">
+                    <img src={"https://media.istockphoto.com/photos/elearning-education-concept-learning-online-picture-id1290864946?b=1&k=20&m=1290864946&s=170667a&w=0&h=zZq7rG5McSptSIpEm9f8iTGd3Mrdkcslakr91T7qTYM="} alt="Students" className="object-cover w-full h-full" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent"></div>
+                  </div>
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl shadow-2xl max-w-[200px]"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="bg-green-500 w-3 h-3 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-gray-500">Live Mentorship</span>
+                    </div>
+                    <p className="text-sm font-bold text-secondary">Get 1:1 guidance from industry experts</p>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+
+        {/* 2. TRUSTED BY */}
+        <section className="py-20 bg-gray-50/50 border-y overflow-hidden">
+          <div className="container mx-auto px-4">
+            <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-[0.2em] mb-12">
+              Students preparing for companies like
+            </p>
+            <div className="flex overflow-hidden group">
+              <div className="flex animate-scroll group-hover:pause gap-20 items-center min-w-full">
+                {["Google", "Microsoft", "Amazon", "Adobe", "IBM", "Meta", "Flipkart", "Goldman Sachs"].map((logo, i) => (
+                  <span key={i} className="text-2xl md:text-3xl font-black text-secondary/20 hover:text-primary transition-colors whitespace-nowrap cursor-default">
+                    {logo}
+                  </span>
+                ))}
+                {["Google", "Microsoft", "Amazon", "Adobe", "IBM", "Meta", "Flipkart", "Goldman Sachs"].map((logo, i) => (
+                  <span key={i + 10} className="text-2xl md:text-3xl font-black text-secondary/20 hover:text-primary transition-colors whitespace-nowrap cursor-default">
+                    {logo}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>
-      </div>
 
 
-      {/* 2. TRUSTED BY */}
-      <section className="py-20 bg-gray-50/50 border-y overflow-hidden">
-        <div className="container mx-auto px-4">
-          <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-[0.2em] mb-12">
-            Students preparing for companies like
-          </p>
-          <div className="flex overflow-hidden group">
-            <div className="flex animate-scroll group-hover:pause gap-20 items-center min-w-full">
-              {["Google", "Microsoft", "Amazon", "Adobe", "IBM", "Meta", "Flipkart", "Goldman Sachs"].map((logo, i) => (
-                <span key={i} className="text-2xl md:text-3xl font-black text-secondary/20 hover:text-primary transition-colors whitespace-nowrap cursor-default">
-                  {logo}
-                </span>
-              ))}
-              {["Google", "Microsoft", "Amazon", "Adobe", "IBM", "Meta", "Flipkart", "Goldman Sachs"].map((logo, i) => (
-                <span key={i + 10} className="text-2xl md:text-3xl font-black text-secondary/20 hover:text-primary transition-colors whitespace-nowrap cursor-default">
-                  {logo}
-                </span>
-              ))}
+        {/* 3. LEARNING PATHS */}
+        <Section id="resourses" className="py-24 bg-gray-50">
+          <div className="container mx-auto px-4">
+
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-4">
+                Choose a Learning Path
+              </h2>
+              <p className="text-gray-500 text-lg">
+                Select a career path and start your journey today.
+              </p>
             </div>
+
+            {(() => {
+
+              const paths: LearningPath[] = [
+                {
+                  title: "Full Stack Development",
+                  desc: "Learn React, Node.js, MongoDB and build production-ready web apps.",
+                  img: img1
+                },
+                {
+                  title: "Data Analysis",
+                  desc: "Master Python, SQL, Tableau and Power BI for data-driven roles.",
+                  img: da
+                },
+                {
+                  title: "Programming",
+                  desc: "Build strong coding foundations with JavaScript and algorithms.",
+                  img: img2
+                },
+                {
+                  title: "Interview Preparation",
+                  desc: "Prepare with coding challenges and real mock interviews.",
+                  img: img3
+                },
+                {
+                  title: "CS Core Subjects",
+                  desc: "Understand DBMS, Operating Systems and System Design concepts.",
+                  img: cs
+                },
+                {
+                  title: "Off Campus Preparation",
+                  desc: "Prepare for product-based companies and hiring drives.",
+                  img: offcam
+                }
+              ]
+
+
+              const PathCard = ({ item }: { item: LearningPath }) => (
+                <div className="group relative rounded-3xl overflow-hidden shadow-lg cursor-pointer will-change-transform">
+
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-[260px] md:h-[300px] object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+
+                    <h3 className="text-2xl font-bold text-white mb-2 text-center">
+                      {item.title}
+                    </h3>
+
+                    <div className="w-12 h-[3px] bg-primary mx-auto rounded-full mb-3"></div>
+
+                    <p className="text-sm text-gray-200 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
+                      {item.desc}
+                    </p>
+
+                    <Button
+                      variant="outline"
+                      className="mt-4 w-fit border-white text-white md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-primary hover:border-primary hover:text-white"
+                    >
+                      Explore
+                      <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+
+                  </div>
+
+                </div>
+              )
+
+
+              return (
+                <>
+
+                  {/* MOBILE CAROUSEL */}
+                  <div className="block lg:hidden">
+
+                    <Swiper
+                      modules={[Pagination]}
+                      slidesPerView={1.12}
+                      spaceBetween={14}
+                      centeredSlides={true}
+                      speed={380}
+                      resistance={true}
+                      resistanceRatio={0.65}
+                      pagination={{ clickable: true }}
+                      grabCursor={true}
+                      cssMode={false}
+                      className="pb-10 select-none"
+                    >
+                      {paths.map((item, i) => (
+                        <SwiperSlide key={i} className="py-2">
+                          <PathCard item={item} />
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+
+                  </div>
+
+
+                  {/* DESKTOP GRID */}
+                  <div className="hidden lg:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    {paths.map((item, i) => (
+                      <PathCard key={i} item={item} />
+                    ))}
+
+                  </div>
+
+                </>
+              )
+
+            })()}
+
           </div>
-        </div>
-      </section>
+        </Section>
 
 
-      {/* 3. LEARNING PATHS */}
-      <Section id="resourses" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-4">
-              Choose a Learning Path
-            </h2>
-            <p className="text-gray-500 text-lg">
-              Select a career path and start your journey today.
-            </p>
-          </div>
-
-          {(() => {
-
-            const paths: LearningPath[] = [
-              {
-                title: "Full Stack Development",
-                desc: "Learn React, Node.js, MongoDB and build production-ready web apps.",
-                img: img1
-              },
-              {
-                title: "Data Analysis",
-                desc: "Master Python, SQL, Tableau and Power BI for data-driven roles.",
-                img: da
-              },
-              {
-                title: "Programming",
-                desc: "Build strong coding foundations with JavaScript and algorithms.",
-                img: img2
-              },
-              {
-                title: "Interview Preparation",
-                desc: "Prepare with coding challenges and real mock interviews.",
-                img: img3
-              },
-              {
-                title: "CS Core Subjects",
-                desc: "Understand DBMS, Operating Systems and System Design concepts.",
-                img: cs
-              },
-              {
-                title: "Off Campus Preparation",
-                desc: "Prepare for product-based companies and hiring drives.",
-                img: offcam
-              }
-            ]
+        {/* 4. UPCOMING BOOTCAMP */}
+        <Section
+          id="bootcamp"
+          className="py-24 bg-secondary relative overflow-hidden scroll-mt-24"
+        >
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-1/4"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8">
 
 
-            const PathCard = ({ item }: { item: LearningPath }) => (
-              <div className="group relative rounded-3xl overflow-hidden shadow-lg cursor-pointer will-change-transform">
+                <div className="inline-block px-4 py-2 rounded-lg bg-primary text-white font-bold text-sm uppercase tracking-widest">
+                  Job Guarantee Track
+                </div>
+                <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+                  Full Stack Web Development Job Bootcamp
+                </h2>
+                <p className="text-xl text-white/70">
+                  A 6-month intensive bootcamp designed to help you land your dream tech job with hands-on learning.
+                </p>
 
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-[260px] md:h-[300px] object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                />
+                <div className="space-y-6">
+                  <p className="text-sm font-bold text-white/40 uppercase tracking-widest">Master this stack</p>
+                  <div className="flex flex-wrap gap-4">
+                    {["HTML", "CSS", "JS", "React", "Node.js", "MongoDB", "Express"].map((tech, i) => (
+                      <motion.div
+                        key={i}
+                        whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.15)" }}
+                        className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold transition-colors cursor-default"
+                      >
+                        {tech}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="pt-8">
+                  <p className="text-white/60 mb-4 font-semibold">Next Batch Starting In:</p>
+                  <CountdownTimer />
+                </div>
 
-                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <a href="https://your-form-link.com" target="_blank">
+                <Button
+  size="lg"
+  onClick={() => {
+    const message = "Hi, I'm interested in Full Stack Web Development Job Bootcamp. Let me know the process please."
+    const url = `https://wa.me/919618772020?text=${encodeURIComponent(message)}`
+    window.open(url, "_blank")
+  }}
+  className="bg-primary text-white h-14 px-10 text-lg font-bold hover:scale-105 transition-all shadow-xl shadow-primary/25"
+>
+  Enroll Now
+</Button>
+                  </a>
+                  <a href="/jobbootcamp.pdf" download>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="h-14 px-10 text-lg font-bold border-white/20 text-white hover:bg-white/5 transition-all"
+                    >
+                      Know More
+                    </Button>
+                  </a>
+                </div>
+              </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-2 text-center">
-                    {item.title}
-                  </h3>
+              <div className="relative group overflow-hidden">
+                <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/30 transition-all duration-700"></div>
 
-                  <div className="w-12 h-[3px] bg-primary mx-auto rounded-full mb-3"></div>
+                <div className="relative glass-card border-white/10 p-8 rounded-[2.5rem] shadow-2xl overflow-hidden">
 
-                  <p className="text-sm text-gray-200 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
-                    {item.desc}
+                  <div className="overflow-hidden">
+                    <div className="flex gap-12 animate-marquee whitespace-nowrap">
+
+                      {[
+                        { icon: Zap, title: "Live Classes", desc: "Interactive mentor sessions", color: "text-primary" },
+                        { icon: Code, title: "Real Projects", desc: "Build production apps", color: "text-blue-400" },
+                        { icon: Shield, title: "Placement Support", desc: "Mock interviews", color: "text-green-400" },
+                        { icon: Database, title: "Backend APIs", desc: "Node + MongoDB", color: "text-purple-400" },
+                        { icon: Users, title: "Community", desc: "Hackathons & contests", color: "text-orange-400" }
+                      ].map((item, i) => (
+
+                        <div key={i} className="flex items-center gap-4 min-w-[250px]">
+
+                          <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center">
+                            <item.icon className={`w-7 h-7 ${item.color}`} />
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold text-orange-500">{item.title}</h4>
+                            <p className="text-black/50 text-sm">{item.desc}</p>
+                          </div>
+
+                        </div>
+
+                      ))}
+
+                    </div>
+                  </div>
+
+                </div>
+                <br /><br />
+
+                <div className="relative glass-card border-white/10 p-8 rounded-[2.5rem] shadow-2xl">
+
+                  <p className="text-sm font-bold text-orange-500 uppercase tracking-widest mb-6">
+                    Skills You Will Learn
                   </p>
 
-                  <Button
-                    variant="outline"
-                    className="mt-4 w-fit border-white text-white md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-primary hover:border-primary hover:text-white"
+                  <Swiper
+                    modules={[Autoplay]}
+                    spaceBetween={20}
+                    autoplay={{ delay: 2500, disableOnInteraction: false }}
+                    loop={true}
+                    breakpoints={{
+                      320: { slidesPerView: 2 },
+                      640: { slidesPerView: 3 },
+                      1024: { slidesPerView: 4 }
+                    }}
                   >
-                    Explore
-                    <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+
+                    {[
+                      { name: "HTML", img: "https://cdn.worldvectorlogo.com/logos/html-1.svg" },
+                      { name: "CSS", img: "https://cdn.worldvectorlogo.com/logos/css-3.svg" },
+                      { name: "JavaScript", img: "https://cdn.worldvectorlogo.com/logos/javascript-1.svg" },
+                      { name: "React", img: "https://static.vecteezy.com/system/resources/previews/060/194/936/non_2x/react-js-programing-language-3d-icon-transparent-background-free-png.png" },
+                      { name: "Node.js", img: "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" },
+                      { name: "MongoDB", img: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" },
+                      { name: "Express", img: "https://cdn.worldvectorlogo.com/logos/express-109.svg" },
+                      { name: "GitHub", img: "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg" },
+                      { name: "REST APIs", img: "https://cdn-icons-png.flaticon.com/512/2165/2165004.png" },
+                      { name: "System Design", img: "https://cdn-icons-png.flaticon.com/512/906/906175.png" },
+                      { name: "AI Tools", img: "https://cdn-icons-png.flaticon.com/512/4712/4712035.png" }
+                    ].map((skill, i) => (
+
+                      <SwiperSlide key={i}>
+
+                        <motion.div
+                          whileHover={{ scale: 1.12 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                          className="flex flex-col items-center justify-center gap-2 h-28 rounded-xl bg-white/10 border border-white/10 p-3 cursor-pointer"
+                        >
+
+                          <img
+                            src={skill.img}
+                            alt={skill.name}
+                            className="h-12 w-12 object-contain transition-transform duration-300"
+                            loading="lazy"
+                          />
+
+                          <span className="text-xs text-black/80 font-semibold text-center">
+                            {skill.name}
+                          </span>
+
+                        </motion.div>
+
+                      </SwiperSlide>
+
+                    ))}
+
+                  </Swiper>
 
                 </div>
 
-              </div>
-            )
+                <br /><br />
+                <div className="relative glass-card border-white/10 p-10 rounded-[2.5rem] shadow-2xl overflow-hidden">
 
-
-            return (
-              <>
-
-                {/* MOBILE CAROUSEL */}
-                <div className="block lg:hidden">
+                  <p className="text-sm font-bold text-orange-500 uppercase tracking-widest mb-8">
+                    Your 6 Month Journey
+                  </p>
 
                   <Swiper
-                    modules={[Pagination]}
-                    slidesPerView={1.12}
-                    spaceBetween={14}
-                    centeredSlides={true}
-                    speed={380}
-                    resistance={true}
-                    resistanceRatio={0.65}
+                    modules={[Autoplay, Pagination]}
+                    slidesPerView={1}
+                    loop={true}
+                    speed={2500}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false
+                    }}
                     pagination={{ clickable: true }}
-                    grabCursor={true}
-                    cssMode={false}
-                    className="pb-10 select-none"
+                    spaceBetween={30}
+                    className="journeySlider"
                   >
-                    {paths.map((item, i) => (
-                      <SwiperSlide key={i} className="py-2">
-                        <PathCard item={item} />
+
+                    {[
+                      {
+                        id: "01",
+                        title: "Data Structures & Algorithms",
+                        desc: "Master logical thinking and coding patterns used in tech interviews.",
+                        img: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+                      },
+                      {
+                        id: "02",
+                        title: "Frontend Development",
+                        desc: "Build responsive UIs using HTML, CSS, JavaScript and React.",
+                        img: "https://images.unsplash.com/photo-1555099962-4199c345e5dd"
+                      },
+                      {
+                        id: "03",
+                        title: "Backend Development",
+                        desc: "Develop APIs using Node.js, Express and MongoDB.",
+                        img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+                      },
+                      {
+                        id: "04",
+                        title: "AI & GenAI Tools",
+                        desc: "Use modern AI tools to build intelligent applications.",
+                        img: "https://images.unsplash.com/photo-1677442136019-21780ecad995"
+                      },
+                      {
+                        id: "05",
+                        title: "Real World Projects",
+                        desc: "Create production-level projects for your portfolio.",
+                        img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                      },
+                      {
+                        id: "06",
+                        title: "Placement Preparation",
+                        desc: "Resume building, mock interviews and soft skills training.",
+                        img: "https://miro.medium.com/max/875/1*RRGWtfJJMArs62lj2iwVEA.jpeg"
+                      }
+                    ].map((step, i) => (
+
+                      <SwiperSlide key={i}>
+
+                        <motion.div
+                          whileHover={{ scale: 1.03 }}
+                          transition={{ type: "spring", stiffness: 200 }}
+                          className="relative rounded-2xl overflow-hidden mx-auto max-w-[520px] h-[240px]"
+                        >
+
+                          {/* Background Image */}
+                          <img
+                            src={step.img}
+                            alt={step.title}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+
+                          {/* Dark Overlay */}
+                          <div className="absolute inset-0 bg-black/60"></div>
+
+                          {/* Content */}
+                          <div className="relative z-10 p-8 text-white flex flex-col justify-center h-full">
+
+                            <div className="text-5xl font-black text-orange-400 mb-3">
+                              {step.id}
+                            </div>
+
+                            <h3 className="text-xl font-bold text-white mb-2">
+                              {step.title}
+                            </h3>
+
+                            <p className="text-sm text-white/80 leading-relaxed">
+                              {step.desc}
+                            </p>
+
+                          </div>
+
+                        </motion.div>
+
                       </SwiperSlide>
+
                     ))}
+
                   </Swiper>
 
                 </div>
 
 
-                {/* DESKTOP GRID */}
-                <div className="hidden lg:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                  {paths.map((item, i) => (
-                    <PathCard key={i} item={item} />
-                  ))}
-
-                </div>
-
-              </>
-            )
-
-          })()}
-
-        </div>
-      </Section>
 
 
-      {/* 4. UPCOMING BOOTCAMP */}
-      <Section
-        id="bootcamp"
-        className="py-24 bg-secondary relative overflow-hidden scroll-mt-24"
-      >
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-1/4"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-
-
-              <div className="inline-block px-4 py-2 rounded-lg bg-primary text-white font-bold text-sm uppercase tracking-widest">
-                Job Guarantee Track
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                Full Stack Web Development Job Bootcamp
+
+            </div>
+          </div>
+        </Section>
+
+
+
+        {/* INDUSTRY TRAININGS */}
+        <Section id="trainings" className="py-24 bg-gray-50">
+          <div className="container mx-auto px-4">
+
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-secondary mb-4">
+                Industry <span className="text-primary">Trainings</span>
               </h2>
-              <p className="text-xl text-white/70">
-                A 6-month intensive bootcamp designed to help you land your dream tech job with hands-on learning.
+
+              <p className="text-lg text-gray-500">
+                Structured training programs designed to build strong technical foundations.
               </p>
-
-              <div className="space-y-6">
-                <p className="text-sm font-bold text-white/40 uppercase tracking-widest">Master this stack</p>
-                <div className="flex flex-wrap gap-4">
-                  {["HTML", "CSS", "JS", "React", "Node.js", "MongoDB", "Express"].map((tech, i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.15)" }}
-                      className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold transition-colors cursor-default"
-                    >
-                      {tech}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-8">
-                <p className="text-white/60 mb-4 font-semibold">Next Batch Starting In:</p>
-                <CountdownTimer />
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a href="https://your-form-link.com" target="_blank">
-                  <Button
-                    size="lg"
-                    className="bg-primary text-white h-14 px-10 text-lg font-bold hover:scale-105 transition-all shadow-xl shadow-primary/25"
-                  >
-                    Enroll Now
-                  </Button>
-                </a>
-                <a href="/jobbootcamp.pdf" download>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-14 px-10 text-lg font-bold border-white/20 text-white hover:bg-white/5 transition-all"
-                  >
-                    Know More
-                  </Button>
-                </a>
-              </div>
             </div>
 
-            <div className="relative group overflow-hidden">
-              <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/30 transition-all duration-700"></div>
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              spaceBetween={30}
+              slidesPerView={1}
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3500 }}
+              breakpoints={{
+                480: { slidesPerView: 1 },
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+              }}
+            >
 
-              <div className="relative glass-card border-white/10 p-8 rounded-[2.5rem] shadow-2xl overflow-hidden">
+              {[
+                {
+                  title: "Python Programming",
+                  img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
+                  desc: "Master Python fundamentals and build real-world applications."
+                },
+                {
+                  title: "Full Stack Development",
+                  img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+                  desc: "Learn React, Node.js, Express and MongoDB to build web apps."
+                },
+                {
+                  title: "Data Analytics",
+                  img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+                  desc: "Analyze data using Python, SQL, Tableau and Power BI."
+                },
+                {
+                  title: "Machine Learning",
+                  img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+                  desc: "Build ML models and learn predictive analytics."
+                },
+                {
+                  title: "DSA & Problem Solving",
+                  img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                  desc: "Master coding patterns used in product company interviews."
+                }
+              ].map((item, i) => (
 
-                <div className="overflow-hidden">
-                  <div className="flex gap-12 animate-marquee whitespace-nowrap">
+                <SwiperSlide key={i}>
+                  <motion.div
+                    whileHover={{ y: -10 }}
+                    className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
+                  >
 
-                    {[
-                      { icon: Zap, title: "Live Classes", desc: "Interactive mentor sessions", color: "text-primary" },
-                      { icon: Code, title: "Real Projects", desc: "Build production apps", color: "text-blue-400" },
-                      { icon: Shield, title: "Placement Support", desc: "Mock interviews", color: "text-green-400" },
-                      { icon: Database, title: "Backend APIs", desc: "Node + MongoDB", color: "text-purple-400" },
-                      { icon: Users, title: "Community", desc: "Hackathons & contests", color: "text-orange-400" }
-                    ].map((item, i) => (
+                    <img
+                      src={item.img}
+                      className="w-full h-48 object-cover"
+                    />
 
-                      <div key={i} className="flex items-center gap-4 min-w-[250px]">
+                    <div className="p-6">
 
-                        <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center">
-                          <item.icon className={`w-7 h-7 ${item.color}`} />
-                        </div>
+                      <h4 className="text-xl font-bold text-secondary mb-2">
+                        {item.title}
+                      </h4>
 
-                        <div>
-                          <h4 className="text-lg font-bold text-orange-500">{item.title}</h4>
-                          <p className="text-black/50 text-sm">{item.desc}</p>
-                        </div>
+                      <p className="text-gray-500 text-sm">
+                        {item.desc}
+                      </p>
 
-                      </div>
+                    </div>
 
-                    ))}
+                  </motion.div>
+                </SwiperSlide>
 
-                  </div>
-                </div>
-
-              </div>
+              ))}
               <br /><br />
+            </Swiper>
 
-              <div className="relative glass-card border-white/10 p-8 rounded-[2.5rem] shadow-2xl">
-
-                <p className="text-sm font-bold text-orange-500 uppercase tracking-widest mb-6">
-                  Skills You Will Learn
-                </p>
-
-                <Swiper
-                  modules={[Autoplay]}
-                  spaceBetween={20}
-                  autoplay={{ delay: 2500, disableOnInteraction: false }}
-                  loop={true}
-                  breakpoints={{
-                    320: { slidesPerView: 2 },
-                    640: { slidesPerView: 3 },
-                    1024: { slidesPerView: 4 }
-                  }}
-                >
-
-                  {[
-                    { name: "HTML", img: "https://cdn.worldvectorlogo.com/logos/html-1.svg" },
-                    { name: "CSS", img: "https://cdn.worldvectorlogo.com/logos/css-3.svg" },
-                    { name: "JavaScript", img: "https://cdn.worldvectorlogo.com/logos/javascript-1.svg" },
-                    { name: "React", img: "https://cdn.worldvectorlogo.com/logos/react-2.svg" },
-                    { name: "Node.js", img: "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" },
-                    { name: "MongoDB", img: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" },
-                    { name: "Express", img: "https://cdn.worldvectorlogo.com/logos/express-109.svg" },
-                    { name: "GitHub", img: "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg" },
-                    { name: "REST APIs", img: "https://cdn-icons-png.flaticon.com/512/2165/2165004.png" },
-                    { name: "System Design", img: "https://cdn-icons-png.flaticon.com/512/906/906175.png" },
-                    { name: "AI Tools", img: "https://cdn-icons-png.flaticon.com/512/4712/4712035.png" }
-                  ].map((skill, i) => (
-
-                    <SwiperSlide key={i}>
-
-                      <motion.div
-                        whileHover={{ scale: 1.12 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                        className="flex flex-col items-center justify-center gap-2 h-28 rounded-xl bg-white/10 border border-white/10 p-3 cursor-pointer"
-                      >
-
-                        <img
-                          src={skill.img}
-                          alt={skill.name}
-                          className="h-12 w-12 object-contain transition-transform duration-300"
-                          loading="lazy"
-                        />
-
-                        <span className="text-xs text-black/80 font-semibold text-center">
-                          {skill.name}
-                        </span>
-
-                      </motion.div>
-
-                    </SwiperSlide>
-
-                  ))}
-
-                </Swiper>
-
-              </div>
-
-              <br /><br />
-              <div className="relative glass-card border-white/10 p-10 rounded-[2.5rem] shadow-2xl overflow-hidden">
-
-                <p className="text-sm font-bold text-orange-500 uppercase tracking-widest mb-8">
-                  Your 6 Month Journey
-                </p>
-
-                <Swiper
-                  modules={[Autoplay, Pagination]}
-                  slidesPerView={1}
-                  loop={true}
-                  speed={2500}
-                  autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false
-                  }}
-                  pagination={{ clickable: true }}
-                  spaceBetween={30}
-                  className="journeySlider"
-                >
-
-                  {[
-                    {
-                      id: "01",
-                      title: "Data Structures & Algorithms",
-                      desc: "Master logical thinking and coding patterns used in tech interviews.",
-                      img: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
-                    },
-                    {
-                      id: "02",
-                      title: "Frontend Development",
-                      desc: "Build responsive UIs using HTML, CSS, JavaScript and React.",
-                      img: "https://images.unsplash.com/photo-1555099962-4199c345e5dd"
-                    },
-                    {
-                      id: "03",
-                      title: "Backend Development",
-                      desc: "Develop APIs using Node.js, Express and MongoDB.",
-                      img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
-                    },
-                    {
-                      id: "04",
-                      title: "AI & GenAI Tools",
-                      desc: "Use modern AI tools to build intelligent applications.",
-                      img: "https://images.unsplash.com/photo-1677442136019-21780ecad995"
-                    },
-                    {
-                      id: "05",
-                      title: "Real World Projects",
-                      desc: "Create production-level projects for your portfolio.",
-                      img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-                    },
-                    {
-                      id: "06",
-                      title: "Placement Preparation",
-                      desc: "Resume building, mock interviews and soft skills training.",
-                      img: "https://miro.medium.com/max/875/1*RRGWtfJJMArs62lj2iwVEA.jpeg"
-                    }
-                  ].map((step, i) => (
-
-                    <SwiperSlide key={i}>
-
-                      <motion.div
-                        whileHover={{ scale: 1.03 }}
-                        transition={{ type: "spring", stiffness: 200 }}
-                        className="relative rounded-2xl overflow-hidden mx-auto max-w-[520px] h-[240px]"
-                      >
-
-                        {/* Background Image */}
-                        <img
-                          src={step.img}
-                          alt={step.title}
-                          className="absolute inset-0 w-full h-full object-cover"
-                        />
-
-                        {/* Dark Overlay */}
-                        <div className="absolute inset-0 bg-black/60"></div>
-
-                        {/* Content */}
-                        <div className="relative z-10 p-8 text-white flex flex-col justify-center h-full">
-
-                          <div className="text-5xl font-black text-orange-400 mb-3">
-                            {step.id}
-                          </div>
-
-                          <h3 className="text-xl font-bold text-white mb-2">
-                            {step.title}
-                          </h3>
-
-                          <p className="text-sm text-white/80 leading-relaxed">
-                            {step.desc}
-                          </p>
-
-                        </div>
-
-                      </motion.div>
-
-                    </SwiperSlide>
-
-                  ))}
-
-                </Swiper>
-
-              </div>
+          </div>
+        </Section>
 
 
+        {/* HANDS-ON WORKSHOPS */}
+        <Section id="workshops" className="py-24 bg-white">
+          <div className="container mx-auto px-4">
 
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-secondary mb-4">
+                Hands-On <span className="text-primary">Workshops</span>
+              </h2>
 
+              <p className="text-lg text-gray-500">
+                Interactive workshops to prepare students for industry challenges.
+              </p>
             </div>
 
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              spaceBetween={30}
+              slidesPerView={1}
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3500 }}
+              breakpoints={{
+                480: { slidesPerView: 1 },
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+              }}
+            >
+
+              {[
+                {
+                  title: "AI Tools Workshop",
+                  img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+                  desc: "Learn ChatGPT, AI automation and productivity tools."
+                },
+                {
+                  title: "Resume Building Workshop",
+                  img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+                  desc: "Create ATS-friendly resumes that attract recruiters."
+                },
+                {
+                  title: "Mock Interview Workshop",
+                  img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+                  desc: "Practice real interview scenarios with industry mentors."
+                },
+                {
+                  title: "TCS NQT Preparation",
+                  img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
+                  desc: "Focused training for TCS hiring process."
+                },
+                {
+                  title: "Coding Contest Workshop",
+                  img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+                  desc: "Improve problem solving through coding competitions."
+                }
+              ].map((item, i) => (
+
+                <SwiperSlide key={i}>
+                  <motion.div
+                    whileHover={{ y: -10 }}
+                    className="bg-gray-50 rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
+                  >
+
+                    <img
+                      src={item.img}
+                      className="w-full h-48 object-cover"
+                    />
+
+                    <div className="p-6">
+
+                      <h4 className="text-xl font-bold text-secondary mb-2">
+                        {item.title}
+                      </h4>
+
+                      <p className="text-gray-500 text-sm">
+                        {item.desc}
+                      </p>
+
+                    </div>
+
+                  </motion.div>
+                </SwiperSlide>
+
+              ))}
+              <br /><br />
+            </Swiper>
+
           </div>
-        </div>
-      </Section>
+        </Section>
 
+{/* 7. OUR TOP COURSES */}
+<Section id="courses" className="py-24 md:py-32 bg-gray-50">
+  <div className="container mx-auto px-4">
 
+    {(() => {
+      const [selectedCourse, setSelectedCourse] = useState<any>(null)
 
-      {/* INDUSTRY TRAININGS */}
-      <Section id="trainings" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+      const courses = [
+        {
+          title: "Full Stack Development",
+          desc: "Build complete web applications using modern technologies.",
+          img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+        },
+        {
+          title: "Data Analytics",
+          desc: "Analyze data using Python, SQL and visualization tools.",
+          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+        },
+        {
+          title: "Artificial Intelligence",
+          desc: "Create intelligent applications using modern AI tools.",
+          img: "https://images.unsplash.com/photo-1677442136019-21780ecad995"
+        },
+        {
+          title: "React Development",
+          desc: "Build fast and modern UI using React and Tailwind.",
+          img: "https://images.unsplash.com/photo-1633356122544-f134324a6cee"
+        },
+        {
+          title: "Backend Development",
+          desc: "Create powerful APIs using Node.js and Express.",
+          img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+        },
+        {
+          title: "Data Science",
+          desc: "Learn data science concepts and machine learning models.",
+          img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
+        }
+      ]
 
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-secondary mb-4">
-              Industry <span className="text-primary">Trainings</span>
-            </h2>
+      const CourseCard = ({ course }: any) => (
+        <motion.div
+          whileHover={{ y: -10 }}
+          className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-100 transition-all"
+        >
+          <div className="overflow-hidden">
+            <img
+              src={course.img}
+              alt={course.title}
+              className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
 
-            <p className="text-lg text-gray-500">
-              Structured training programs designed to build strong technical foundations.
+          <div className="p-6">
+
+            {/* TITLE + PRICE */}
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-xl font-bold text-secondary">
+                {course.title}
+              </h3>
+              <span className="text-primary font-bold text-lg">
+                ₹2999/-
+              </span>
+            </div>
+
+            <p className="text-gray-500 text-sm mb-4">
+              {course.desc}
             </p>
+
+            <Button
+              variant="link"
+              className="px-0 font-bold text-primary"
+              onClick={() => setSelectedCourse(course)}
+            >
+              Explore Course →
+            </Button>
           </div>
+        </motion.div>
+      )
 
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3500 }}
-            breakpoints={{
-              480: { slidesPerView: 1 },
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 }
-            }}
-          >
-
-            {[
-              {
-                title: "Python Programming",
-                img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
-                desc: "Master Python fundamentals and build real-world applications."
-              },
-              {
-                title: "Full Stack Development",
-                img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-                desc: "Learn React, Node.js, Express and MongoDB to build web apps."
-              },
-              {
-                title: "Data Analytics",
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-                desc: "Analyze data using Python, SQL, Tableau and Power BI."
-              },
-              {
-                title: "Machine Learning",
-                img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-                desc: "Build ML models and learn predictive analytics."
-              },
-              {
-                title: "DSA & Problem Solving",
-                img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-                desc: "Master coding patterns used in product company interviews."
-              }
-            ].map((item, i) => (
-
-              <SwiperSlide key={i}>
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
-                >
-
-                  <img
-                    src={item.img}
-                    className="w-full h-48 object-cover"
-                  />
-
-                  <div className="p-6">
-
-                    <h4 className="text-xl font-bold text-secondary mb-2">
-                      {item.title}
-                    </h4>
-
-                    <p className="text-gray-500 text-sm">
-                      {item.desc}
-                    </p>
-
-                  </div>
-
-                </motion.div>
-              </SwiperSlide>
-
-            ))}
-<br /><br />
-          </Swiper>
-
-        </div>
-      </Section>
-
-
-      {/* HANDS-ON WORKSHOPS */}
-      <Section id="workshops" className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-secondary mb-4">
-              Hands-On <span className="text-primary">Workshops</span>
-            </h2>
-
-            <p className="text-lg text-gray-500">
-              Interactive workshops to prepare students for industry challenges.
-            </p>
-          </div>
-
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3500 }}
-            breakpoints={{
-              480: { slidesPerView: 1 },
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 }
-            }}
-          >
-
-            {[
-              {
-                title: "AI Tools Workshop",
-                img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-                desc: "Learn ChatGPT, AI automation and productivity tools."
-              },
-              {
-                title: "Resume Building Workshop",
-                img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
-                desc: "Create ATS-friendly resumes that attract recruiters."
-              },
-              {
-                title: "Mock Interview Workshop",
-                img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-                desc: "Practice real interview scenarios with industry mentors."
-              },
-              {
-                title: "TCS NQT Preparation",
-                img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80",
-                desc: "Focused training for TCS hiring process."
-              },
-              {
-                title: "Coding Contest Workshop",
-                img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
-                desc: "Improve problem solving through coding competitions."
-              }
-            ].map((item, i) => (
-
-              <SwiperSlide key={i}>
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="bg-gray-50 rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all"
-                >
-
-                  <img
-                    src={item.img}
-                    className="w-full h-48 object-cover"
-                  />
-
-                  <div className="p-6">
-
-                    <h4 className="text-xl font-bold text-secondary mb-2">
-                      {item.title}
-                    </h4>
-
-                    <p className="text-gray-500 text-sm">
-                      {item.desc}
-                    </p>
-
-                  </div>
-
-                </motion.div>
-              </SwiperSlide>
-
-            ))}
-<br /><br />
-          </Swiper>
-
-        </div>
-      </Section>
-
-      {/* 7. OUR TOP COURSES */}
-      <Section id="courses" className="py-24 md:py-32 bg-gray-50">
-        <div className="container mx-auto px-4">
-
-          {/* SECTION HEADER */}
+      return (
+        <>
+          {/* HEADER */}
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
               Our Top Courses
@@ -1087,352 +1177,150 @@ export default function Home() {
             </p>
           </div>
 
+          {/* MOBILE SLIDER */}
+          <div className="block lg:hidden">
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              spaceBetween={20}
+              slidesPerView={1}
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000 }}
+              className="pb-10"
+            >
+              {courses.map((course, i) => (
+                <SwiperSlide key={i}>
+                  <CourseCard course={course} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
 
-          {/* COURSE DATA */}
-          {(() => {
-            const courses = [
-              {
-                title: "Full Stack Development",
-                desc: "Build complete web applications using modern technologies.",
-                img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-              },
-              {
-                title: "Data Analytics",
-                desc: "Analyze data using Python, SQL and visualization tools.",
-                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
-              },
-              {
-                title: "Artificial Intelligence",
-                desc: "Create intelligent applications using modern AI tools.",
-                img: "https://images.unsplash.com/photo-1677442136019-21780ecad995"
-              },
-              {
-                title: "React Development",
-                desc: "Build fast and modern UI using React and Tailwind.",
-                img: "https://images.unsplash.com/photo-1633356122544-f134324a6cee"
-              },
-              {
-                title: "Backend Development",
-                desc: "Create powerful APIs using Node.js and Express.",
-                img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
-              },
-              {
-                title: "Data Science",
-                desc: "Learn data science concepts and machine learning models.",
-                img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
-              }
-            ]
+          {/* DESKTOP GRID */}
+          <div className="hidden lg:grid grid-cols-3 gap-8">
+            {courses.map((course, i) => (
+              <CourseCard key={i} course={course} />
+            ))}
+          </div>
 
-            const CourseCard = ({ course }: { course: Course }) => (
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-100 transition-all"
+          {/* 🔥 MODAL */}
+          <AnimatePresence>
+            {selectedCourse && (
+              <div
+                className="fixed inset-0 z-[999] flex items-center justify-center bg-black/50 px-4 py-10 overflow-y-auto"
+                onClick={() => setSelectedCourse(null)} // click outside closes
               >
-                <div className="overflow-hidden">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  onClick={(e) => e.stopPropagation()} // prevent closing inside
+                  className="bg-white w-full max-w-lg rounded-2xl shadow-2xl relative overflow-hidden"
+                >
+
+                  {/* HEADER WITH CLOSE */}
+                  <div className="flex justify-end p-4">
+                    <button
+                      onClick={() => setSelectedCourse(null)}
+                      className="text-gray-500 hover:text-black text-xl"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  {/* IMAGE */}
                   <img
-                    src={course.img}
-                    alt={course.title}
-                    className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
+                    src={selectedCourse.img}
+                    className="w-full h-40 object-cover"
                   />
-                </div>
 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-secondary mb-2">
-                    {course.title}
-                  </h3>
+                  {/* CONTENT */}
+                  <div className="p-6">
 
-                  <p className="text-gray-500 text-sm mb-4">
-                    {course.desc}
-                  </p>
-
-                  <Button variant="link" className="px-0 font-bold text-primary">
-                    Explore Course →
-                  </Button>
-                </div>
-              </motion.div>
-            )
-
-
-            return (
-              <>
-                {/* MOBILE SLIDER */}
-                <div className="block lg:hidden">
-                  <Swiper
-                    modules={[Autoplay, Pagination]}
-                    spaceBetween={20}
-                    slidesPerView={1}
-                    pagination={{ clickable: true }}
-                    autoplay={{ delay: 3000 }}
-                    className="pb-10"
-                  ><br /><br />
-                    {courses.map((course, i) => (
-                      <SwiperSlide key={i}>
-                        <CourseCard course={course} />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </div>
-
-
-                {/* DESKTOP GRID */}
-                <div className="hidden lg:grid grid-cols-3 gap-8">
-                  {courses.map((course, i) => (
-                    <CourseCard key={i} course={course} />
-                  ))}
-                </div>
-              </>
-            )
-          })()}
-
-        </div>
-      </Section>
-
-
-
-
-      {/* 8. COMMUNITY */}
-      <Section id="community" className="py-24 bg-secondary text-white">
-        <div className="container mx-auto px-4">
-
-          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-
-            {/* LEFT CONTENT */}
-            <div className="flex flex-col justify-center space-y-8">
-
-              {/* ORANGE HEADING */}
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
-                Join the <span className="text-primary">EvITernship</span> Developer Community
-              </h2>
-
-              <div className="grid gap-6">
-
-                {[
-                  { title: "Expert Talks", icon: MessageSquare },
-                  { title: "Open Source Projects", icon: Globe },
-                  { title: "Coding Contests", icon: Trophy },
-                  { title: "Hackathons", icon: Zap }
-                ].map((act, i) => (
-
-                  <motion.div
-                    key={i}
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 transition-all"
-                  >
-
-                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
-                      <act.icon className="w-6 h-6" />
+                    <div className="flex justify-between items-center mb-2">
+                      <h2 className="text-2xl font-bold text-secondary">
+                        {selectedCourse.title}
+                      </h2>
+                      <span className="text-primary font-bold text-xl">
+                        ₹2999/-
+                      </span>
                     </div>
 
-                    <span className="text-xl font-bold">
-                      {act.title}
-                    </span>
+                    <p className="text-gray-600 mb-4">
+                      {selectedCourse.desc}
+                    </p>
 
-                  </motion.div>
+                    <ul className="text-sm text-gray-500 space-y-2 mb-6">
+                      <li>✔ Real-world projects</li>
+                      <li>✔ Industry mentorship</li>
+                      <li>✔ Certificate</li>
+                      <li>✔ Placement support</li>
+                    </ul>
 
-                ))}
+                    {/* WHATSAPP BUTTON */}
+                    <button
+                      onClick={() => {
+                        const message = `Hi, I'm interested in ${selectedCourse.title}. What's the process?`
+                        const url = `https://wa.me/919618772020?text=${encodeURIComponent(message)}`
+                        window.open(url, "_blank")
+                      }}
+                      className="w-full bg-primary text-white py-3 rounded-lg font-bold hover:opacity-90"
+                    >
+                      Enroll Now 🚀
+                    </button>
 
+                  </div>
+                </motion.div>
               </div>
+            )}
+          </AnimatePresence>
+        </>
+      )
+    })()}
 
-            </div>
-
-
-            {/* RIGHT IMAGE */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="relative rounded-[2.5rem] overflow-hidden min-h-[420px]"
-            >
-
-              <img
-                src={"https://static.vecteezy.com/system/resources/previews/004/579/151/non_2x/the-web-developer-team-is-building-a-smartphone-app-in-flat-design-free-vector.jpg"}
-                alt="Community"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                loading="lazy"
-              />
-
-              <div className="absolute inset-0 rounded-[2.5rem] ring-1 ring-white/20"></div>
-
-            </motion.div>
-
-          </div>
-
-        </div>
-      </Section>
-
-      {/* 9. DEVELOPER ROADMAPS */}
-      <Section id="roadmaps" className="py-24 bg-secondary relative overflow-hidden scroll-mt-24">
-
-        <div className="container mx-auto px-4">
-
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              Developer <span className="text-primary">Roadmaps</span>
-            </h2>
-
-            <p className="text-white/70 text-lg">
-              Choose a career path and explore the roadmap to become an expert.
-            </p>
-          </div>
+  </div>
+</Section>
 
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* 8. COMMUNITY */}
+        <Section id="community" className="py-24 bg-secondary text-white">
+          <div className="container mx-auto px-4">
 
-            {[
-              { title: "Frontend", link: "https://roadmap.sh/frontend" },
-              { title: "Backend", link: "https://roadmap.sh/backend" },
-              { title: "Full Stack", link: "https://roadmap.sh/full-stack" },
-              { title: "DevOps", link: "https://roadmap.sh/devops" },
-              { title: "Data Analyst", link: "https://roadmap.sh/data-analyst" },
-              { title: "AI Engineer", link: "https://roadmap.sh/ai-engineer" },
-              { title: "Cyber Security", link: "https://roadmap.sh/cyber-security" },
-              { title: "Android", link: "https://roadmap.sh/android" },
-              { title: "PostgreSQL", link: "https://roadmap.sh/postgresql-dba" },
-              { title: "Machine Learning", link: "https://roadmap.sh/machine-learning" },
-              { title: "Game Developer", link: "https://roadmap.sh/game-developer" },
-              { title: "Product Manager", link: "https://roadmap.sh/product-manager" }
-            ].map((item, i) => (
-
-              <motion.a
-                key={i}
-                href={item.link}
-                target="_blank"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="group bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-lg hover:border-primary transition-all cursor-pointer"
-              >
-
-                <div className="flex items-center justify-between">
-
-                  <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-
-                  <ChevronRight className="text-white/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-
-                </div>
-
-              </motion.a>
-
-            ))}
-
-          </div>
-
-        </div>
-      </Section>
-
-
-      {/* 9. STATS COUNTER */}
-      <Section className="py-20 bg-primary">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-            <StatsCounter end={5000} label="Students Trained" />
-            <StatsCounter end={200} label="Projects Built" />
-            <StatsCounter end={100} label="Partner Colleges" />
-            <StatsCounter end={50} label="Industry Mentors" />
-          </div>
-        </div>
-      </Section>
-
-
-
-
-      {/* 10. CERTIFICATE */}
-      <Section className="py-24 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
-            <motion.div
-              whileHover={{ rotateX: 5, rotateY: 5, scale: 1.02 }}
-              className="relative preserve-3d"
-            >
-              <img src={"https://eviternship.com/assets/img/showImg/blogger.jpg"} alt="Certificate" className="rounded-xl shadow-2xl border-8 border-white" loading="lazy" />
-              <div className="absolute -top-6 -right-6 bg-primary text-white p-6 rounded-2xl shadow-xl font-bold">
-                Certified Professional
-              </div>
-            </motion.div>
-            <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-secondary">Earn Internship Certification</h2>
-              <p className="text-lg text-gray-500 leading-relaxed">
-                Get a verified certificate that showcases your practical skills and project work to employers worldwide.
-              </p>
-              <ul className="space-y-4">
-                {["Industry Recognized", "Project Verified", "Sharable on LinkedIn"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 font-bold text-secondary">
-                    <CheckCircle2 className="w-6 h-6 text-green-500" /> {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-
-
-      {/* 14. CONTACT */}
-      <Section id="contact" className="py-16 md:py-24 bg-gray-50">
-
-        <div className="container mx-auto px-4">
-
-          <div className="bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 shadow-xl border border-gray-100">
-
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-16 items-stretch">
 
               {/* LEFT CONTENT */}
-              <div className="space-y-6 md:space-y-8">
+              <div className="flex flex-col justify-center space-y-8">
 
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary">
-                  Get in Touch
+                {/* ORANGE HEADING */}
+                <h2 className="text-4xl md:text-5xl font-bold text-white">
+                  Join the <span className="text-primary">EvITernship</span> Developer Community
                 </h2>
 
-                <p className="text-base md:text-lg text-gray-500">
-                  Have questions about our programs? Our team is here to help you.
-                </p>
+                <div className="grid gap-6">
 
-                <div className="space-y-6">
+                  {[
+                    { title: "Expert Talks", icon: MessageSquare },
+                    { title: "Open Source Projects", icon: Globe },
+                    { title: "Coding Contests", icon: Trophy },
+                    { title: "Hackathons", icon: Zap }
+                  ].map((act, i) => (
 
-                  {/* PHONE */}
-                  <div className="flex items-center gap-4 md:gap-6">
+                    <motion.div
+                      key={i}
+                      whileHover={{ x: 10 }}
+                      className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 transition-all"
+                    >
 
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-accent rounded-xl md:rounded-2xl flex items-center justify-center text-primary">
-                      <Phone className="w-5 h-5 md:w-6 md:h-6" />
-                    </div>
-
-                    <div>
-                      <div className="text-xs md:text-sm font-bold text-gray-400 uppercase">
-                        Phone
+                      <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+                        <act.icon className="w-6 h-6" />
                       </div>
 
-                      <div className="text-lg md:text-xl font-bold text-secondary">
-                        6304237115
-                      </div>
-                    </div>
+                      <span className="text-xl font-bold">
+                        {act.title}
+                      </span>
 
-                  </div>
+                    </motion.div>
 
-
-                  {/* EMAIL */}
-                  <div className="flex items-center gap-4 md:gap-6">
-
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-accent rounded-xl md:rounded-2xl flex items-center justify-center text-primary">
-                      <Mail className="w-5 h-5 md:w-6 md:h-6" />
-                    </div>
-
-                    <div>
-                      <div className="text-xs md:text-sm font-bold text-gray-400 uppercase">
-                        Email
-                      </div>
-
-                      <div className="text-lg md:text-xl font-bold text-secondary break-all">
-                        team@eviternship.com
-                      </div>
-                    </div>
-
-                  </div>
+                  ))}
 
                 </div>
 
@@ -1440,14 +1328,216 @@ export default function Home() {
 
 
               {/* RIGHT IMAGE */}
-              <div className="relative">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="relative rounded-[2.5rem] overflow-hidden min-h-[420px]"
+              >
 
                 <img
-                  src={aboutImg}
-                  alt="Contact"
-                  className="w-full h-[240px] md:h-[320px] object-cover rounded-2xl md:rounded-3xl shadow-lg grayscale hover:grayscale-0 transition-all duration-700"
+                  src={"https://static.vecteezy.com/system/resources/previews/004/579/151/non_2x/the-web-developer-team-is-building-a-smartphone-app-in-flat-design-free-vector.jpg"}
+                  alt="Community"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                   loading="lazy"
                 />
+
+                <div className="absolute inset-0 rounded-[2.5rem] ring-1 ring-white/20"></div>
+
+              </motion.div>
+
+            </div>
+
+          </div>
+        </Section>
+
+        {/* 9. DEVELOPER ROADMAPS */}
+        <Section id="roadmaps" className="py-24 bg-secondary relative overflow-hidden scroll-mt-24">
+
+          <div className="container mx-auto px-4">
+
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+                Developer <span className="text-primary">Roadmaps</span>
+              </h2>
+
+              <p className="text-white/70 text-lg">
+                Choose a career path and explore the roadmap to become an expert.
+              </p>
+            </div>
+
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+              {[
+                { title: "Frontend", link: "https://drive.google.com/file/d/1Sw6yyw1uGJkFczNmGhcHqamMcDrV3_rp/view?usp=drive_link" },
+                { title: "Backend", link: "https://drive.google.com/file/d/13pyJtJoOEfrWaS3DJIgd7YC-MPV4XLRp/view?usp=drive_link" },
+                { title: "Full Stack", link: "https://drive.google.com/file/d/1V5Kb777Z5Rw088849Q8JuXa61R0C7OvP/view?usp=drive_link" },
+                { title: "DevOps", link: "https://drive.google.com/file/d/1iw1M_-A-BC0Q0rQ79SgTukMDBI59KxaZ/view?usp=drive_link" },
+                { title: "Data Analyst", link: "https://drive.google.com/file/d/1irgdl4zzXoAwieQut3nbWlKflzbhbw50/view?usp=drive_link" },
+                { title: "AI Engineer", link: "https://drive.google.com/file/d/1hZxf8rNamfn415iTl032185BHHBf1Mn3/view?usp=drive_link" },
+                { title: "Cyber Security", link: "https://drive.google.com/file/d/1ekiyFpLAUER-0cevEgjRRMeTv-RxPGll/view?usp=drive_link" },
+                { title: "Android", link: "https://drive.google.com/file/d/1rFVkdIYmtINVBeNB5FBZswiboUg4skFh/view?usp=drive_link" },
+                { title: "PostgreSQL", link: "https://drive.google.com/file/d/1leKE_cDT31BYIXS65k94ssFcAnbXCkXW/view?usp=drive_link" },
+                { title: "Machine Learning", link: "https://drive.google.com/file/d/1jh9lFSEhn9K5IWjrhfJoWPHUHz7nZZr9/view?usp=drive_link" },
+                { title: "Game Developer", link: "https://drive.google.com/file/d/1Ch6c48wAW5_srgnL9v5H--dePz5ui4T4/view?usp=drive_link" },
+                { title: "Product Manager", link: "https://drive.google.com/file/d/1Y_RApDM1S7QArOnyoyt-pdcBj0LgPbFz/view?usp=drive_link" }
+              ].map((item, i) => (
+
+                <motion.a
+                  key={i}
+                  href={item.link}
+                  target="_blank"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="group bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-lg hover:border-primary transition-all cursor-pointer"
+                >
+
+                  <div className="flex items-center justify-between">
+
+                    <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <ChevronRight className="text-white/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+
+                  </div>
+
+                </motion.a>
+
+              ))}
+
+            </div>
+
+          </div>
+        </Section>
+
+
+        {/* 9. STATS COUNTER */}
+        <Section className="py-20 bg-primary">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+              <StatsCounter end={5000} label="Students Trained" />
+              <StatsCounter end={200} label="Projects Built" />
+              <StatsCounter end={100} label="Partner Colleges" />
+              <StatsCounter end={50} label="Industry Mentors" />
+            </div>
+          </div>
+        </Section>
+
+
+
+
+        {/* 10. CERTIFICATE */}
+        <Section className="py-24 md:py-32">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+              <motion.div
+                whileHover={{ rotateX: 5, rotateY: 5, scale: 1.02 }}
+                className="relative preserve-3d"
+              >
+                <img src={"https://eviternship.com/assets/img/showImg/blogger.jpg"} alt="Certificate" className="rounded-xl shadow-2xl border-8 border-white" loading="lazy" />
+                <div className="absolute -top-6 -right-6 bg-primary text-white p-6 rounded-2xl shadow-xl font-bold">
+                  Certified Professional
+                </div>
+              </motion.div>
+              <div className="space-y-6">
+                <h2 className="text-4xl font-bold text-secondary">Earn Internship Certification</h2>
+                <p className="text-lg text-gray-500 leading-relaxed">
+                  Get a verified certificate that showcases your practical skills and project work to employers worldwide.
+                </p>
+                <ul className="space-y-4">
+                  {["Industry Recognized", "Project Verified", "Sharable on LinkedIn"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 font-bold text-secondary">
+                      <CheckCircle2 className="w-6 h-6 text-green-500" /> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+
+
+        {/* 14. CONTACT */}
+        <Section id="contact" className="py-16 md:py-24 bg-gray-50">
+
+          <div className="container mx-auto px-4">
+
+            <div className="bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 shadow-xl border border-gray-100">
+
+              <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+                {/* LEFT CONTENT */}
+                <div className="space-y-6 md:space-y-8">
+
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary">
+                    Get in Touch
+                  </h2>
+
+                  <p className="text-base md:text-lg text-gray-500">
+                    Have questions about our programs? Our team is here to help you.
+                  </p>
+
+                  <div className="space-y-6">
+
+                    {/* PHONE */}
+                    <div className="flex items-center gap-4 md:gap-6">
+
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-accent rounded-xl md:rounded-2xl flex items-center justify-center text-primary">
+                        <Phone className="w-5 h-5 md:w-6 md:h-6" />
+                      </div>
+
+                      <div>
+                        <div className="text-xs md:text-sm font-bold text-gray-400 uppercase">
+                          Phone
+                        </div>
+
+                        <div className="text-lg md:text-xl font-bold text-secondary">
+                          6304237115
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    {/* EMAIL */}
+                    <div className="flex items-center gap-4 md:gap-6">
+
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-accent rounded-xl md:rounded-2xl flex items-center justify-center text-primary">
+                        <Mail className="w-5 h-5 md:w-6 md:h-6" />
+                      </div>
+
+                      <div>
+                        <div className="text-xs md:text-sm font-bold text-gray-400 uppercase">
+                          Email
+                        </div>
+
+                        <div className="text-lg md:text-xl font-bold text-secondary break-all">
+                          team@eviternship.com
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                {/* RIGHT IMAGE */}
+                <div className="relative">
+
+                  <img
+                    src={aboutImg}
+                    alt="Contact"
+                    className="w-full h-[240px] md:h-[320px] object-cover rounded-2xl md:rounded-3xl shadow-lg grayscale hover:grayscale-0 transition-all duration-700"
+                    loading="lazy"
+                  />
+
+                </div>
 
               </div>
 
@@ -1455,73 +1545,86 @@ export default function Home() {
 
           </div>
 
-        </div>
-
-      </Section>
+        </Section>
 
 
 
-      {/* 15. FINAL CTA */}
-      <Section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="bg-secondary rounded-[3rem] p-16 md:p-24 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-primary/10 blur-[100px]"></div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 relative z-10">Get the Tech Career You Deserve, Faster</h2>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-              <Button size="lg" className="bg-primary text-white h-16 px-12 text-xl font-bold hover:scale-105 transition-all shadow-2xl shadow-primary/30">
-                Enroll Now
-              </Button>
-              <Button size="lg" variant="outline" className="h-16 px-12 text-xl font-bold text-white border-white/20 hover:bg-white/10 transition-all">
-                Explore Programs
-              </Button>
+        {/* 15. FINAL CTA */}
+        <Section className="py-24">
+          <div className="container mx-auto px-4">
+            <div className="bg-secondary rounded-[3rem] p-16 md:p-24 text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-primary/10 blur-[100px]"></div>
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 relative z-10">Get the Tech Career You Deserve, Faster</h2>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+                <Button size="lg" className="bg-primary text-white h-16 px-12 text-xl font-bold hover:scale-105 transition-all shadow-2xl shadow-primary/30">
+                  Enroll Now
+                </Button>
+                <Button size="lg" variant="outline" className="h-16 px-12 text-xl font-bold text-white border-white/20 hover:bg-white/10 transition-all">
+                  Explore Programs
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </Section>
+        </Section>
 
 
-      {/* FOOTER */}
-      <footer className="bg-white pt-24 pb-12 border-t">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20">
-            <div className="col-span-2 md:col-span-1">
-              <img src={logoImage} alt="EVITernship" className="h-10 mb-8" />
-              <p className="text-gray-500 max-w-xs">Building the next generation of industry-ready tech talent through practical training.</p>
+        {/* FOOTER */}
+        <footer className="bg-white pt-24 pb-12 border-t">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20">
+              <div className="col-span-2 md:col-span-1">
+                <img src={logoImage} alt="EVITernship" className="h-10 mb-8" />
+                <p className="text-gray-500 max-w-xs">Building the next generation of industry-ready tech talent through practical training.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-secondary mb-6">Programs</h4>
+                <ul className="space-y-4 text-gray-500">
+                  <li><Link href="#" className="hover:text-primary transition-colors">Bootcamp</Link></li>
+                  <li><Link href="#" className="hover:text-primary transition-colors">Internships</Link></li>
+                  <li><Link href="#" className="hover:text-primary transition-colors">Data Analysis</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold text-secondary mb-6">Company</h4>
+                <ul className="space-y-4 text-gray-500">
+                  <li><Link href="#" className="hover:text-primary transition-colors">About Us</Link></li>
+                  <li><Link href="#" className="hover:text-primary transition-colors">Careers</Link></li>
+                  <li><Link href="#" className="hover:text-primary transition-colors">Community</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold text-secondary mb-6">Contact</h4>
+                <ul className="space-y-4 text-gray-500">
+                  <li>team@eviternship.com</li>
+                  <li>6304237115</li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h4 className="font-bold text-secondary mb-6">Programs</h4>
-              <ul className="space-y-4 text-gray-500">
-                <li><Link href="#" className="hover:text-primary transition-colors">Bootcamp</Link></li>
-                <li><Link href="#" className="hover:text-primary transition-colors">Internships</Link></li>
-                <li><Link href="#" className="hover:text-primary transition-colors">Data Analysis</Link></li>
-              </ul>
+            <div className="pt-12 border-t flex flex-col md:flex-row justify-between items-center gap-8">
+              <p className="text-sm text-gray-400 font-medium">© 2026 EVITernship. All rights reserved.</p>
+              <div className="flex gap-8">
+                <Link href="#" className="text-gray-400 hover:text-primary transition-colors font-bold">LinkedIn</Link>
+                <Link href="#" className="text-gray-400 hover:text-primary transition-colors font-bold">Instagram</Link>
+                <Link href="#" className="text-gray-400 hover:text-primary transition-colors font-bold">YouTube</Link>
+              </div>
             </div>
-            <div>
-              <h4 className="font-bold text-secondary mb-6">Company</h4>
-              <ul className="space-y-4 text-gray-500">
-                <li><Link href="#" className="hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link href="#" className="hover:text-primary transition-colors">Careers</Link></li>
-                <li><Link href="#" className="hover:text-primary transition-colors">Community</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-secondary mb-6">Contact</h4>
-              <ul className="space-y-4 text-gray-500">
-                <li>team@eviternship.com</li>
-                <li>6304237115</li>
-              </ul>
-            </div>
+
+<div className="flex flex-col items-center gap-2 md:flex-row md:justify-end md:gap-6">
+  <Link to="/terms" className="text-black underline font-medium text-sm">
+    Terms and Conditions
+  </Link>
+
+  <Link to="/privacy" className="text-black underline font-medium text-sm">
+    Privacy Policy
+  </Link>
+
+  <Link to="/refund" className="text-black underline font-medium text-sm">
+    Refund Policy
+  </Link>
+</div>
+
           </div>
-          <div className="pt-12 border-t flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-sm text-gray-400 font-medium">© 2026 EVITernship. All rights reserved.</p>
-            <div className="flex gap-8">
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors font-bold">LinkedIn</Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors font-bold">Instagram</Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors font-bold">YouTube</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+        </footer>
 
 
 
@@ -1531,7 +1634,7 @@ export default function Home() {
 
 
 
-      <style>{`
+        <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -1565,7 +1668,7 @@ export default function Home() {
           background: #FF8C42;
         }
       `}</style>
-    </div>
+      </div>
 
     </>
   );
